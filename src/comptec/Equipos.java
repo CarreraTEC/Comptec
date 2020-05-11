@@ -16,7 +16,6 @@ public class Equipos extends javax.swing.JFrame {
     public Equipos() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setResizable(false);
         mostrarEquipos();
     }
     
@@ -26,7 +25,7 @@ public class Equipos extends javax.swing.JFrame {
         "Estado","IdDepto"};
         //Definir los registros
         String[] registros = new String[9];
-
+        //Añadimos un modelo a la tabla
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
         try {
