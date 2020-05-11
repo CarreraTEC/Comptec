@@ -399,6 +399,11 @@ public class Equipos extends javax.swing.JFrame {
 
             }
         ));
+        tablaContenidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaContenidosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaContenidos);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 690, 320));
@@ -459,6 +464,21 @@ public class Equipos extends javax.swing.JFrame {
         eliminar();
         mostrarEquipos();
     }//GEN-LAST:event_borrarBtnActionPerformed
+
+    private void tablaContenidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaContenidosMouseClicked
+        //Código para mandar la información del renglon seleccionado
+        int filaSeleccionada = tablaContenidos.rowAtPoint(evt.getPoint());
+        idTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 0).toString());
+        inventTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 1).toString());
+        serieTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 2).toString());
+        modeloTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 3).toString());
+        proceTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 4).toString());
+        ramTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 5).toString());
+        discoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 6).toString());
+        estadoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 7).toString());
+        iddeptoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 8).toString());
+        
+    }//GEN-LAST:event_tablaContenidosMouseClicked
 
     /**
      * @param args the command line arguments

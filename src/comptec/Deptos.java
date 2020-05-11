@@ -117,7 +117,7 @@ public class Deptos extends javax.swing.JFrame {
 
         try {
             //Llamada al procedimiento almacenado
-            CallableStatement call = conect.prepareCall("call modificar_equipo(?,?,?,?,?)");
+            CallableStatement call = conect.prepareCall("call modificar_departamento(?,?,?,?,?)");
             //Se ingresan los parametros *EN ORDEN*
             call.setString(1, idTxt.getText());
             call.setString(2, nombreTxt.getText());
@@ -136,7 +136,7 @@ public class Deptos extends javax.swing.JFrame {
 
         try {
             //Llamada al procedimiento almacenado
-            CallableStatement call = conect.prepareCall("call eliminar_equipo(?,?)");
+            CallableStatement call = conect.prepareCall("call eliminar_departamento(?,?)");
             call.setString(1, idTxt.getText());
             call.registerOutParameter(2, java.sql.Types.VARCHAR);
             call.execute();
@@ -350,6 +350,11 @@ public class Deptos extends javax.swing.JFrame {
 
             }
         ));
+        tablaContenidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaContenidosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaContenidos);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 680, 370));
@@ -412,6 +417,15 @@ public class Deptos extends javax.swing.JFrame {
     private void todoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoBtnActionPerformed
         mostrarDeptos();
     }//GEN-LAST:event_todoBtnActionPerformed
+
+    private void tablaContenidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaContenidosMouseClicked
+        //Código para mandar la información del renglon seleccionado
+        int filaSeleccionada = tablaContenidos.rowAtPoint(evt.getPoint());
+        idTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 0).toString());
+        nombreTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 1).toString());
+        correoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 2).toString());
+        telefonoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 3).toString());
+    }//GEN-LAST:event_tablaContenidosMouseClicked
 
     /**
      * @param args the command line arguments
