@@ -202,7 +202,8 @@ public class JefesDepto extends javax.swing.JFrame {
         añadirBtn = new javax.swing.JButton();
         todoBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
-        separador = new javax.swing.JSeparator();
+        searchTxt = new javax.swing.JTextField();
+        seperador = new javax.swing.JLabel();
         search = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaContenidos = new javax.swing.JTable();
@@ -370,7 +371,24 @@ public class JefesDepto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 68, 68));
-        getContentPane().add(separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 40, 100, -1));
+
+        searchTxt.setBackground(new java.awt.Color(1, 76, 168));
+        searchTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        searchTxt.setForeground(new java.awt.Color(255, 255, 255));
+        searchTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        searchTxt.setText("Id del jefe");
+        searchTxt.setBorder(null);
+        searchTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchTxtMouseClicked(evt);
+            }
+        });
+        getContentPane().add(searchTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 22, 100, -1));
+
+        seperador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        seperador.setForeground(new java.awt.Color(255, 255, 255));
+        seperador.setText("_____________");
+        getContentPane().add(seperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 25, 110, -1));
 
         search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32.png"))); // NOI18N
         getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
@@ -465,6 +483,10 @@ public class JefesDepto extends javax.swing.JFrame {
         iddeptoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 7).toString());
     }//GEN-LAST:event_tablaContenidosMouseClicked
 
+    private void searchTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTxtMouseClicked
+        searchTxt.setText(null);
+    }//GEN-LAST:event_searchTxtMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -523,7 +545,8 @@ public class JefesDepto extends javax.swing.JFrame {
     private javax.swing.JTextField passTxt;
     private javax.swing.JButton reporteBtn;
     private javax.swing.JLabel search;
-    private javax.swing.JSeparator separador;
+    private javax.swing.JTextField searchTxt;
+    private javax.swing.JLabel seperador;
     private javax.swing.JTable tablaContenidos;
     private javax.swing.JLabel telefLab;
     private javax.swing.JTextField telefonoTxt;
