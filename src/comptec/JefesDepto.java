@@ -61,43 +61,49 @@ public class JefesDepto extends javax.swing.JFrame {
 
     }
 
-//    public void buscarEquipo() {
-//        //Encabezados de la tabla
-//        String[] titulos = {"Id", "Institución", "Categoria", "Id Evento"};
-//        //Registros de la tabla
-//        String[] registros = new String[4];
-//
-//        DefaultTableModel model = new DefaultTableModel(null, titulos);
-//
-//        try {
-//            //Llamada al procedimiento almacenado
-//            CallableStatement call = conect.prepareCall("call buscar_equipo(?,?)");
-//            //Se ingresan los parametros del procedimiento *EN ORDEN*
-//            call.setString(1, txtSearch.getText());
-//            call.registerOutParameter(2, java.sql.Types.VARCHAR);
-//            ResultSet rs = call.executeQuery();
-//
-//            //Se llena la tabla
-//            while (rs.next()) {
-//                registros[0] = rs.getString("id");
-//                registros[1] = rs.getString("institucion");
-//                registros[2] = rs.getString("categoria");
-//                registros[3] = rs.getString("evento");
-//
-//                model.addRow(registros);
-//            }
-//            tablaequipos.setModel(model);
-//            //Definir ancho de columnas
-//            int[] anchos = {10, 180, 180, 20};
-//            for (int i = 0; i < tablaequipos.getColumnCount(); i++) {
-//                tablaequipos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
-//            }
-//            tablaequipos.setDefaultEditor(Object.class, null);
-//            JOptionPane.showMessageDialog(null, call.getString(2));
-//        } catch (Exception ex) {
-//            JOptionPane.showMessageDialog(null, "El equipo no existe");
-//        }
-//    }
+    public void buscarJefe() {
+        //Definir encabezados de la tabla
+        String[] titulos = {"Id", "Nombre", "Correo", "Teléfono","TipoUsuario","Usuario",
+        "Contraseña","IdDepto"};
+        //Definir los registros
+        String[] registros = new String[8];
+        
+        DefaultTableModel model = new DefaultTableModel(null, titulos);
+
+        try {
+            //Llamada al procedimiento almacenado
+            CallableStatement call = conect.prepareCall("call buscar_jefe(?,?)");
+            //Se ingresan los parametros del procedimiento *EN ORDEN*
+            call.setString(1, searchTxt.getText());
+            call.registerOutParameter(2, java.sql.Types.VARCHAR);
+            ResultSet rs = call.executeQuery();
+
+           //Se llena la tabla con los registros
+            while (rs.next()) {
+                registros[0] = rs.getString("id");
+                registros[1] = rs.getString("nombre");
+                registros[2] = rs.getString("correo");
+                registros[3] = rs.getString("telefono");
+                registros[4] = rs.getString("tipoUsuario");
+                registros[5] = rs.getString("usuario");
+                registros[6] = rs.getString("contraseña");
+                registros[7] = rs.getString("idDepto");
+                
+                model.addRow(registros);
+            }
+            tablaContenidos.setModel(model);
+            //Definir ancho de las columnas
+            int[] anchos = {10, 200, 100, 50, 10, 10, 10, 10};
+            for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
+                tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
+            }
+            //Hacer campos de la tabla, no editables
+            tablaContenidos.setDefaultEditor(Object.class, null);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Ingrese el Id del jefe");
+
+        }
+    }
 
     public void añadir() {
 
@@ -170,6 +176,7 @@ public class JefesDepto extends javax.swing.JFrame {
         userTxt.setText(null);
         passTxt.setText(null);
         iddeptoTxt.setText(null);
+        searchTxt.setText(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -204,7 +211,7 @@ public class JefesDepto extends javax.swing.JFrame {
         logoutBtn = new javax.swing.JButton();
         searchTxt = new javax.swing.JTextField();
         seperador = new javax.swing.JLabel();
-        search = new javax.swing.JLabel();
+        searchBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaContenidos = new javax.swing.JTable();
         Fondo = new javax.swing.JLabel();
@@ -390,8 +397,15 @@ public class JefesDepto extends javax.swing.JFrame {
         seperador.setText("_____________");
         getContentPane().add(seperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 25, 110, -1));
 
-        search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32.png"))); // NOI18N
-        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
+        searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32.png"))); // NOI18N
+        searchBtn.setContentAreaFilled(false);
+        searchBtn.setFocusPainted(false);
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 15, 40, 30));
 
         tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -456,18 +470,34 @@ public class JefesDepto extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void añadirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirBtnActionPerformed
-        añadir();
-        mostrarJefes();
+        if (idTxt.getText().isEmpty() || nombreTxt.getText().isEmpty() || correoTxt.getText().isEmpty() ||
+            telefonoTxt.getText().isEmpty() || tuserTxt.getText().isEmpty() || userTxt.getText().isEmpty() ||
+            passTxt.getText().isEmpty() || iddeptoTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Hay campos vacios");
+        } else {
+            añadir();
+            mostrarJefes();
+        }
     }//GEN-LAST:event_añadirBtnActionPerformed
 
     private void modifBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifBtnActionPerformed
-        modificar();
-        mostrarJefes();
+         if (idTxt.getText().isEmpty() || nombreTxt.getText().isEmpty() || correoTxt.getText().isEmpty() ||
+            telefonoTxt.getText().isEmpty() || tuserTxt.getText().isEmpty() || userTxt.getText().isEmpty() ||
+            passTxt.getText().isEmpty() || iddeptoTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Hay campos vacios");
+        } else {
+            modificar();
+            mostrarJefes();
+        }
     }//GEN-LAST:event_modifBtnActionPerformed
 
     private void borrarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarBtnActionPerformed
-        eliminar();
-        mostrarJefes();
+         if (idTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese el Id del jefe");
+        } else {
+            eliminar();
+            mostrarJefes();
+        }
     }//GEN-LAST:event_borrarBtnActionPerformed
 
     private void tablaContenidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaContenidosMouseClicked
@@ -486,6 +516,14 @@ public class JefesDepto extends javax.swing.JFrame {
     private void searchTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTxtMouseClicked
         searchTxt.setText(null);
     }//GEN-LAST:event_searchTxtMouseClicked
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        if (searchTxt.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese el Id del jefe");
+        } else {
+            buscarJefe();
+        }
+    }//GEN-LAST:event_searchBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -544,7 +582,7 @@ public class JefesDepto extends javax.swing.JFrame {
     private javax.swing.JLabel passLab;
     private javax.swing.JTextField passTxt;
     private javax.swing.JButton reporteBtn;
-    private javax.swing.JLabel search;
+    private javax.swing.JButton searchBtn;
     private javax.swing.JTextField searchTxt;
     private javax.swing.JLabel seperador;
     private javax.swing.JTable tablaContenidos;

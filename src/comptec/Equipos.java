@@ -1,4 +1,3 @@
-
 package comptec;
 
 import java.sql.CallableStatement;
@@ -8,7 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Equipos extends javax.swing.JFrame {
-    
+
     //Establecer la conexión con la BD
     ConexionBD conex = new ConexionBD();
     Connection conect = conex.conexion();
@@ -18,11 +17,11 @@ public class Equipos extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         mostrarEquipos();
     }
-    
+
     public void mostrarEquipos() {
         //Definir encabezados de la tabla
         String[] titulos = {"Id", "No.Invent", "No.Serie", "Modelo", "Procesador", "RAM", "DiscoDuro",
-        "Estado","IdDepto"};
+            "Estado", "IdDepto"};
         //Definir los registros
         String[] registros = new String[9];
         //Añadimos un modelo a la tabla
@@ -62,44 +61,51 @@ public class Equipos extends javax.swing.JFrame {
 
     }
 
-//    public void buscarEquipo() {
-//        //Encabezados de la tabla
-//        String[] titulos = {"Id", "Institución", "Categoria", "Id Evento"};
-//        //Registros de la tabla
-//        String[] registros = new String[4];
-//
-//        DefaultTableModel model = new DefaultTableModel(null, titulos);
-//
-//        try {
-//            //Llamada al procedimiento almacenado
-//            CallableStatement call = conect.prepareCall("call buscar_equipo(?,?)");
-//            //Se ingresan los parametros del procedimiento *EN ORDEN*
-//            call.setString(1, txtSearch.getText());
-//            call.registerOutParameter(2, java.sql.Types.VARCHAR);
-//            ResultSet rs = call.executeQuery();
-//
-//            //Se llena la tabla
-//            while (rs.next()) {
-//                registros[0] = rs.getString("id");
-//                registros[1] = rs.getString("institucion");
-//                registros[2] = rs.getString("categoria");
-//                registros[3] = rs.getString("evento");
-//
-//                model.addRow(registros);
-//            }
-//            tablaequipos.setModel(model);
-//            //Definir ancho de columnas
-//            int[] anchos = {10, 180, 180, 20};
-//            for (int i = 0; i < tablaequipos.getColumnCount(); i++) {
-//                tablaequipos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
-//            }
-//            tablaequipos.setDefaultEditor(Object.class, null);
-//            JOptionPane.showMessageDialog(null, call.getString(2));
-//        } catch (Exception ex) {
-//            JOptionPane.showMessageDialog(null, "El equipo no existe");
-//        }
-//    }
+    public void buscarEquipo() {
+        //Definir encabezados de la tabla
+        String[] titulos = {"Id", "No.Invent", "No.Serie", "Modelo", "Procesador", "RAM", "DiscoDuro",
+            "Estado", "IdDepto"};
+        //Definir los registros
+        String[] registros = new String[9];
+        //Añadimos un modelo a la tabla
+        DefaultTableModel model = new DefaultTableModel(null, titulos);
 
+        try {
+            //Llamada al procedimiento almacenado
+            CallableStatement call = conect.prepareCall("call buscar_equipo(?,?)");
+            //Se ingresan los parametros del procedimiento *EN ORDEN*
+            call.setString(1, searchTxt.getText());
+            call.registerOutParameter(2, java.sql.Types.VARCHAR);
+            ResultSet rs = call.executeQuery();
+
+            //Se llena la tabla
+            while (rs.next()) {
+                registros[0] = rs.getString("id");
+                registros[1] = rs.getString("noInvent");
+                registros[2] = rs.getString("noSerie");
+                registros[3] = rs.getString("modelo");
+                registros[4] = rs.getString("procesador");
+                registros[5] = rs.getString("ram");
+                registros[6] = rs.getString("discoDuro");
+                registros[7] = rs.getString("estado");
+                registros[8] = rs.getString("idDepto");
+
+                model.addRow(registros);
+            }
+            tablaContenidos.setModel(model);
+            //Definir ancho de las columnas
+            int[] anchos = {5, 30, 30, 100, 90, 20, 40, 40, 20};
+            for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
+                tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
+            }
+            //Hacer campos de la tabla, no editables
+            tablaContenidos.setDefaultEditor(Object.class, null);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Ingrese el Id del equipo");
+
+        }
+    }
+    
     public void añadir() {
 
         try {
@@ -159,7 +165,7 @@ public class Equipos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, call.getString(2));
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error: "+ex);
+            JOptionPane.showMessageDialog(null, "Error: " + ex);
         }
 
     }
@@ -174,8 +180,8 @@ public class Equipos extends javax.swing.JFrame {
         discoTxt.setText(null);
         estadoTxt.setText(null);
         iddeptoTxt.setText(null);
+        searchTxt.setText(null);
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -208,10 +214,10 @@ public class Equipos extends javax.swing.JFrame {
         iddeptoTxt = new javax.swing.JTextField();
         añadirBtn = new javax.swing.JButton();
         todoBtn = new javax.swing.JButton();
-        search = new javax.swing.JLabel();
         logoutBtn = new javax.swing.JButton();
         searchTxt = new javax.swing.JTextField();
         seperador = new javax.swing.JLabel();
+        searchBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaContenidos = new javax.swing.JTable();
         Fondo = new javax.swing.JLabel();
@@ -374,9 +380,6 @@ public class Equipos extends javax.swing.JFrame {
         });
         getContentPane().add(todoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 130, 50));
 
-        search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32.png"))); // NOI18N
-        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
-
         logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logoutNorm.png"))); // NOI18N
         logoutBtn.setBorderPainted(false);
         logoutBtn.setContentAreaFilled(false);
@@ -406,6 +409,16 @@ public class Equipos extends javax.swing.JFrame {
         seperador.setText("_____________");
         getContentPane().add(seperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 25, 110, -1));
 
+        searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32.png"))); // NOI18N
+        searchBtn.setContentAreaFilled(false);
+        searchBtn.setFocusPainted(false);
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 15, 40, 30));
+
         tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -433,7 +446,7 @@ public class Equipos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void equipoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipoBtnActionPerformed
-       
+
     }//GEN-LAST:event_equipoBtnActionPerformed
 
     private void deptoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptoBtnActionPerformed
@@ -469,18 +482,34 @@ public class Equipos extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void añadirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirBtnActionPerformed
-        añadir();
-        mostrarEquipos();
+        if (idTxt.getText().isEmpty() || inventTxt.getText().isEmpty() || serieTxt.getText().isEmpty()
+                || modeloTxt.getText().isEmpty() || proceTxt.getText().isEmpty() || ramTxt.getText().isEmpty()
+                || discoTxt.getText().isEmpty() || estadoTxt.getText().isEmpty() || iddeptoTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Hay campos vacios");
+        } else {
+            añadir();
+            mostrarEquipos();
+        }
     }//GEN-LAST:event_añadirBtnActionPerformed
 
     private void modifBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifBtnActionPerformed
-        modificar();
-        mostrarEquipos();
+        if (idTxt.getText().isEmpty() || inventTxt.getText().isEmpty() || serieTxt.getText().isEmpty()
+                || modeloTxt.getText().isEmpty() || proceTxt.getText().isEmpty() || ramTxt.getText().isEmpty()
+                || discoTxt.getText().isEmpty() || estadoTxt.getText().isEmpty() || iddeptoTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Hay campos vacios");
+        } else {
+            modificar();
+            mostrarEquipos();
+        }
     }//GEN-LAST:event_modifBtnActionPerformed
 
     private void borrarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarBtnActionPerformed
-        eliminar();
-        mostrarEquipos();
+        if (idTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese el Id del equipo");
+        } else {
+            eliminar();
+            mostrarEquipos();
+        }
     }//GEN-LAST:event_borrarBtnActionPerformed
 
     private void tablaContenidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaContenidosMouseClicked
@@ -495,12 +524,20 @@ public class Equipos extends javax.swing.JFrame {
         discoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 6).toString());
         estadoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 7).toString());
         iddeptoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 8).toString());
-        
+
     }//GEN-LAST:event_tablaContenidosMouseClicked
 
     private void searchTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTxtMouseClicked
         searchTxt.setText(null);
     }//GEN-LAST:event_searchTxtMouseClicked
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        if (searchTxt.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese el Id del equipo");
+        } else {
+            buscarEquipo();
+        }
+    }//GEN-LAST:event_searchBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -565,7 +602,7 @@ public class Equipos extends javax.swing.JFrame {
     private javax.swing.JLabel ramLab;
     private javax.swing.JTextField ramTxt;
     private javax.swing.JButton reporteBtn;
-    private javax.swing.JLabel search;
+    private javax.swing.JButton searchBtn;
     private javax.swing.JTextField searchTxt;
     private javax.swing.JLabel seperador;
     private javax.swing.JLabel serieLab;
