@@ -24,8 +24,8 @@ public class JefesDepto extends javax.swing.JFrame {
     
      public void mostrarJefes() {
         //Definir encabezados de la tabla
-        String[] titulos = {"Id", "Nombre", "Correo", "Teléfono","TipoUsuario","Usuario",
-        "Contraseña","IdDepto"};
+        String[] titulos = {"Id", "Nombre", "Correo", "Teléfono","TipoUser","User",
+        "Pass","IdDepto"};
         //Definir los registros
         String[] registros = new String[8];
         //Añadimos un modelo a la tabla
@@ -51,7 +51,7 @@ public class JefesDepto extends javax.swing.JFrame {
             }
             tablaContenidos.setModel(model);
             //Definir ancho de las columnas
-            int[] anchos = {10, 200, 100, 50, 10, 10, 10, 10};
+            int[] anchos = {5, 180, 100, 50, 35, 30, 10, 25};
             for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
                 tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
             }
@@ -262,24 +262,32 @@ public class JefesDepto extends javax.swing.JFrame {
         idLab.setForeground(new java.awt.Color(255, 255, 255));
         idLab.setText("ID");
         getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
+
+        idTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 150, -1));
 
         nombreLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         nombreLab.setForeground(new java.awt.Color(255, 255, 255));
         nombreLab.setText("NOMBRE");
         getContentPane().add(nombreLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+
+        nombreTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 150, -1));
 
         correoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         correoLab.setForeground(new java.awt.Color(255, 255, 255));
         correoLab.setText("CORREO");
         getContentPane().add(correoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
+
+        correoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(correoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 150, -1));
 
         telefLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         telefLab.setForeground(new java.awt.Color(255, 255, 255));
         telefLab.setText("TELÉFONO");
         getContentPane().add(telefLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
+
+        telefonoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(telefonoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 150, -1));
 
         tuserLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -301,8 +309,14 @@ public class JefesDepto extends javax.swing.JFrame {
         iddeptoLab.setForeground(new java.awt.Color(255, 255, 255));
         iddeptoLab.setText("ID DEPTO.");
         getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, -1));
+
+        iddeptoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 150, -1));
+
+        passTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 150, -1));
+
+        userTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 150, -1));
 
         limpBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
@@ -409,8 +423,10 @@ public class JefesDepto extends javax.swing.JFrame {
         });
         getContentPane().add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 15, 40, 30));
 
+        tuserCmb.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(tuserCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 150, -1));
 
+        tablaContenidos.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},

@@ -187,30 +187,38 @@ public class Deptos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 180, -1));
-        getContentPane().add(correoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 180, -1));
-        getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 180, -1));
-        getContentPane().add(telefonoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 180, -1));
+
+        nombreTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        getContentPane().add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 150, -1));
+
+        correoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        getContentPane().add(correoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 150, -1));
+
+        idTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 150, -1));
+
+        telefonoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        getContentPane().add(telefonoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 150, -1));
 
         telefonoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         telefonoLab.setForeground(new java.awt.Color(255, 255, 255));
         telefonoLab.setText("TELEFONO");
-        getContentPane().add(telefonoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
+        getContentPane().add(telefonoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 92, -1, -1));
 
         correoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         correoLab.setForeground(new java.awt.Color(255, 255, 255));
         correoLab.setText("CORREO");
-        getContentPane().add(correoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
+        getContentPane().add(correoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 152, -1, -1));
 
         idLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         idLab.setForeground(new java.awt.Color(255, 255, 255));
         idLab.setText("ID");
-        getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 20, -1));
+        getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 92, 20, -1));
 
         nombreLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         nombreLab.setForeground(new java.awt.Color(255, 255, 255));
         nombreLab.setText("NOMBRE");
-        getContentPane().add(nombreLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+        getContentPane().add(nombreLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 122, -1, -1));
 
         borrarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/delete32.png"))); // NOI18N
         borrarBtn.setBorderPainted(false);
@@ -221,7 +229,7 @@ public class Deptos extends javax.swing.JFrame {
                 borrarBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(borrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, -1, -1));
+        getContentPane().add(borrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 40, 32));
 
         modifBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modif32.png"))); // NOI18N
         modifBtn.setBorderPainted(false);
@@ -232,7 +240,7 @@ public class Deptos extends javax.swing.JFrame {
                 modifBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(modifBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, -1, -1));
+        getContentPane().add(modifBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 30, 30));
 
         añadirBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add32.png"))); // NOI18N
         añadirBtn.setBorderPainted(false);
@@ -243,7 +251,7 @@ public class Deptos extends javax.swing.JFrame {
                 añadirBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(añadirBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, -1));
+        getContentPane().add(añadirBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 30, 30));
 
         jefeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/jefeNorm.png"))); // NOI18N
         jefeBtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/jefeNorm.png"))); // NOI18N
@@ -356,6 +364,7 @@ public class Deptos extends javax.swing.JFrame {
         });
         getContentPane().add(limpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 70, 110, 50));
 
+        tablaContenidos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -412,35 +421,6 @@ public class Deptos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_logoutBtnActionPerformed
 
-    private void añadirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirBtnActionPerformed
-        if (idTxt.getText().isEmpty() || nombreTxt.getText().isEmpty() || correoTxt.getText().isEmpty()
-                || telefonoTxt.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Hay campos vacios");
-        } else {
-            añadir();
-            mostrarDeptos();
-        }
-    }//GEN-LAST:event_añadirBtnActionPerformed
-
-    private void modifBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifBtnActionPerformed
-        if (idTxt.getText().isEmpty() || nombreTxt.getText().isEmpty() || correoTxt.getText().isEmpty()
-                || telefonoTxt.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Hay campos vacios");
-        } else {
-            modificar();
-            mostrarDeptos();
-        }
-    }//GEN-LAST:event_modifBtnActionPerformed
-
-    private void borrarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarBtnActionPerformed
-        if (idTxt.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese el Id del departamento");
-        } else {
-            añadir();
-            mostrarDeptos();
-        }
-    }//GEN-LAST:event_borrarBtnActionPerformed
-
     private void tablaContenidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaContenidosMouseClicked
         //Código para mandar la información del renglon seleccionado
         int filaSeleccionada = tablaContenidos.rowAtPoint(evt.getPoint());
@@ -469,6 +449,35 @@ public class Deptos extends javax.swing.JFrame {
     private void limpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpBtnActionPerformed
         limpiar();
     }//GEN-LAST:event_limpBtnActionPerformed
+
+    private void borrarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarBtnActionPerformed
+        if (idTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese el Id del departamento");
+        } else {
+            añadir();
+            mostrarDeptos();
+        }
+    }//GEN-LAST:event_borrarBtnActionPerformed
+
+    private void modifBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifBtnActionPerformed
+        if (idTxt.getText().isEmpty() || nombreTxt.getText().isEmpty() || correoTxt.getText().isEmpty()
+            || telefonoTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Hay campos vacios");
+        } else {
+            modificar();
+            mostrarDeptos();
+        }
+    }//GEN-LAST:event_modifBtnActionPerformed
+
+    private void añadirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirBtnActionPerformed
+        if (idTxt.getText().isEmpty() || nombreTxt.getText().isEmpty() || correoTxt.getText().isEmpty()
+            || telefonoTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Hay campos vacios");
+        } else {
+            añadir();
+            mostrarDeptos();
+        }
+    }//GEN-LAST:event_añadirBtnActionPerformed
 
     /**
      * @param args the command line arguments
