@@ -11,10 +11,18 @@ public class Equipos extends javax.swing.JFrame {
     //Establecer la conexión con la BD
     ConexionBD conex = new ConexionBD();
     Connection conect = conex.conexion();
-
+    //Recuperamos el idDepto del usuario logueado
+    Login acceso = new Login();
+    int idDepto = acceso.idDepto;
+    
     public Equipos() {
         initComponents();
         this.setLocationRelativeTo(null);
+        //Agregar items al ComboBox
+        estadoCmb.addItem("Bueno");
+        estadoCmb.addItem("Regular");
+        estadoCmb.addItem("Defectuoso");
+        estadoCmb.setSelectedItem(null);
         mostrarEquipos();
     }
 
@@ -29,7 +37,8 @@ public class Equipos extends javax.swing.JFrame {
 
         try {
             //Llamada al procedimiento almacenado
-            CallableStatement call = conect.prepareCall("call mostrar_equipos");
+            CallableStatement call = conect.prepareCall("call mostrar_equipos(?)");
+            call.setInt(1, idDepto);
             ResultSet rs = call.executeQuery();
 
             //Se llena la tabla con los registros
@@ -58,7 +67,6 @@ public class Equipos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No hay equipos");
 
         }
-
     }
 
     public void buscarEquipo() {
@@ -119,7 +127,7 @@ public class Equipos extends javax.swing.JFrame {
             call.setString(5, proceTxt.getText());
             call.setString(6, ramTxt.getText());
             call.setString(7, discoTxt.getText());
-            call.setString(8, estadoTxt.getText());
+            call.setString(8, (String) estadoCmb.getSelectedItem());
             call.setString(9, iddeptoTxt.getText());
             call.registerOutParameter(10, java.sql.Types.VARCHAR);
             call.execute();
@@ -143,7 +151,7 @@ public class Equipos extends javax.swing.JFrame {
             call.setString(5, proceTxt.getText());
             call.setString(6, ramTxt.getText());
             call.setString(7, discoTxt.getText());
-            call.setString(8, estadoTxt.getText());
+            call.setString(8, (String) estadoCmb.getSelectedItem());
             call.setString(9, iddeptoTxt.getText());
             call.registerOutParameter(10, java.sql.Types.VARCHAR);
             call.execute();
@@ -178,7 +186,7 @@ public class Equipos extends javax.swing.JFrame {
         proceTxt.setText(null);
         ramTxt.setText(null);
         discoTxt.setText(null);
-        estadoTxt.setText(null);
+        estadoCmb.setSelectedItem(null);
         iddeptoTxt.setText(null);
         searchTxt.setText(null);
     }
@@ -203,7 +211,6 @@ public class Equipos extends javax.swing.JFrame {
         ramLab = new javax.swing.JLabel();
         discoLab = new javax.swing.JLabel();
         estadoLab = new javax.swing.JLabel();
-        estadoTxt = new javax.swing.JTextField();
         discoTxt = new javax.swing.JTextField();
         ramTxt = new javax.swing.JTextField();
         proceTxt = new javax.swing.JTextField();
@@ -218,6 +225,7 @@ public class Equipos extends javax.swing.JFrame {
         searchTxt = new javax.swing.JTextField();
         seperador = new javax.swing.JLabel();
         searchBtn = new javax.swing.JButton();
+        estadoCmb = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaContenidos = new javax.swing.JTable();
         Fondo = new javax.swing.JLabel();
@@ -304,7 +312,6 @@ public class Equipos extends javax.swing.JFrame {
         estadoLab.setForeground(new java.awt.Color(255, 255, 255));
         estadoLab.setText("ESTADO");
         getContentPane().add(estadoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, -1));
-        getContentPane().add(estadoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 150, -1));
         getContentPane().add(discoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 150, -1));
         getContentPane().add(ramTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 150, -1));
         getContentPane().add(proceTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 150, -1));
@@ -419,6 +426,8 @@ public class Equipos extends javax.swing.JFrame {
         });
         getContentPane().add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 15, 40, 30));
 
+        getContentPane().add(estadoCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 150, -1));
+
         tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -484,7 +493,7 @@ public class Equipos extends javax.swing.JFrame {
     private void añadirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirBtnActionPerformed
         if (idTxt.getText().isEmpty() || inventTxt.getText().isEmpty() || serieTxt.getText().isEmpty()
                 || modeloTxt.getText().isEmpty() || proceTxt.getText().isEmpty() || ramTxt.getText().isEmpty()
-                || discoTxt.getText().isEmpty() || estadoTxt.getText().isEmpty() || iddeptoTxt.getText().isEmpty()) {
+                || discoTxt.getText().isEmpty() || estadoCmb.getSelectedItem()== null || iddeptoTxt.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Hay campos vacios");
         } else {
             añadir();
@@ -495,7 +504,7 @@ public class Equipos extends javax.swing.JFrame {
     private void modifBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifBtnActionPerformed
         if (idTxt.getText().isEmpty() || inventTxt.getText().isEmpty() || serieTxt.getText().isEmpty()
                 || modeloTxt.getText().isEmpty() || proceTxt.getText().isEmpty() || ramTxt.getText().isEmpty()
-                || discoTxt.getText().isEmpty() || estadoTxt.getText().isEmpty() || iddeptoTxt.getText().isEmpty()) {
+                || discoTxt.getText().isEmpty() || estadoCmb.getSelectedItem()== null || iddeptoTxt.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Hay campos vacios");
         } else {
             modificar();
@@ -522,7 +531,7 @@ public class Equipos extends javax.swing.JFrame {
         proceTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 4).toString());
         ramTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 5).toString());
         discoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 6).toString());
-        estadoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 7).toString());
+        estadoCmb.setSelectedItem(tablaContenidos.getValueAt(filaSeleccionada, 7).toString());
         iddeptoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 8).toString());
 
     }//GEN-LAST:event_tablaContenidosMouseClicked
@@ -582,8 +591,8 @@ public class Equipos extends javax.swing.JFrame {
     private javax.swing.JLabel discoLab;
     private javax.swing.JTextField discoTxt;
     private javax.swing.JButton equipoBtn;
+    private javax.swing.JComboBox<String> estadoCmb;
     private javax.swing.JLabel estadoLab;
-    private javax.swing.JTextField estadoTxt;
     private javax.swing.JLabel idLab;
     private javax.swing.JTextField idTxt;
     private javax.swing.JLabel iddeptoLab;

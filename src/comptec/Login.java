@@ -10,7 +10,11 @@ public class Login extends javax.swing.JFrame {
     
     ConexionBD conex = new ConexionBD();
     Connection conect = conex.conexion();
-
+    
+    //Definimos la variable public static para utilizar mas adelante
+    public static int idDepto;
+    
+    
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -18,24 +22,29 @@ public class Login extends javax.swing.JFrame {
 
     public void validarAcceso() {
         try {
-            CallableStatement call = conect.prepareCall("call login_validar(?,?,?)");
+            CallableStatement call = conect.prepareCall("call login_validar(?,?,?,?)");
             call.setString(1, txtUser.getText());
             call.setString(2, String.valueOf(txtPass.getPassword()));
             call.registerOutParameter(3, java.sql.Types.VARCHAR);
+            call.registerOutParameter(4, java.sql.Types.INTEGER);
             call.execute();
            
+            //Obtenemos el id del departamento del usuario
+            idDepto = call.getInt(4);
+            
             //Si es admin...
             if ("Admin".equals(call.getString(3))) {
                 Equipos equip = new Equipos();
                 equip.setVisible(true);
                 this.dispose();
-            
             //Si es jefe...
             } else if ("Jefe".equals(call.getString(3))) {
-                Deptos dept = new Deptos();
-                dept.setVisible(true);
+                Equipos equip = new Equipos();
+                equip.setVisible(true);
                 this.dispose();
-            } 
+            } else {
+                JOptionPane.showMessageDialog(null, "Datos incorrectos");
+            }
             
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error: "+ex);
@@ -92,7 +101,11 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        validarAcceso();
+        if (txtUser.getText().isEmpty() || txtPass.getPassword().length==0) {
+            JOptionPane.showMessageDialog(null, "Ingrese los datos");
+        } else {
+            validarAcceso();
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
 

@@ -16,6 +16,9 @@ public class JefesDepto extends javax.swing.JFrame {
     public JefesDepto() {
         initComponents();
         this.setLocationRelativeTo(null);
+        tuserCmb.addItem("Admin");
+        tuserCmb.addItem("Jefe");
+        tuserCmb.setSelectedItem(null);
         mostrarJefes();
     }
     
@@ -115,7 +118,7 @@ public class JefesDepto extends javax.swing.JFrame {
             call.setString(2, nombreTxt.getText());
             call.setString(3, correoTxt.getText());
             call.setString(4, telefonoTxt.getText());
-            call.setString(5, tuserTxt.getText());
+            call.setString(5, (String) tuserCmb.getSelectedItem());
             call.setString(6, userTxt.getText());
             call.setString(7, passTxt.getText());
             call.setString(8, iddeptoTxt.getText());
@@ -138,7 +141,7 @@ public class JefesDepto extends javax.swing.JFrame {
             call.setString(2, nombreTxt.getText());
             call.setString(3, correoTxt.getText());
             call.setString(4, telefonoTxt.getText());
-            call.setString(5, tuserTxt.getText());
+            call.setString(5, (String) tuserCmb.getSelectedItem());
             call.setString(6, userTxt.getText());
             call.setString(7, passTxt.getText());
             call.setString(8, iddeptoTxt.getText());
@@ -172,7 +175,7 @@ public class JefesDepto extends javax.swing.JFrame {
         nombreTxt.setText(null);
         correoTxt.setText(null);
         telefonoTxt.setText(null);
-        tuserTxt.setText(null);
+        tuserCmb.setSelectedItem(null);
         userTxt.setText(null);
         passTxt.setText(null);
         iddeptoTxt.setText(null);
@@ -202,7 +205,6 @@ public class JefesDepto extends javax.swing.JFrame {
         iddeptoTxt = new javax.swing.JTextField();
         passTxt = new javax.swing.JTextField();
         userTxt = new javax.swing.JTextField();
-        tuserTxt = new javax.swing.JTextField();
         limpBtn = new javax.swing.JButton();
         modifBtn = new javax.swing.JButton();
         borrarBtn = new javax.swing.JButton();
@@ -212,6 +214,7 @@ public class JefesDepto extends javax.swing.JFrame {
         searchTxt = new javax.swing.JTextField();
         seperador = new javax.swing.JLabel();
         searchBtn = new javax.swing.JButton();
+        tuserCmb = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaContenidos = new javax.swing.JTable();
         Fondo = new javax.swing.JLabel();
@@ -301,7 +304,6 @@ public class JefesDepto extends javax.swing.JFrame {
         getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 150, -1));
         getContentPane().add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 150, -1));
         getContentPane().add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 150, -1));
-        getContentPane().add(tuserTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 150, -1));
 
         limpBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         limpBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -407,6 +409,8 @@ public class JefesDepto extends javax.swing.JFrame {
         });
         getContentPane().add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 15, 40, 30));
 
+        getContentPane().add(tuserCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 150, -1));
+
         tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -471,7 +475,7 @@ public class JefesDepto extends javax.swing.JFrame {
 
     private void añadirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirBtnActionPerformed
         if (idTxt.getText().isEmpty() || nombreTxt.getText().isEmpty() || correoTxt.getText().isEmpty() ||
-            telefonoTxt.getText().isEmpty() || tuserTxt.getText().isEmpty() || userTxt.getText().isEmpty() ||
+            telefonoTxt.getText().isEmpty() || tuserCmb.getSelectedItem()== null || userTxt.getText().isEmpty() ||
             passTxt.getText().isEmpty() || iddeptoTxt.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Hay campos vacios");
         } else {
@@ -482,7 +486,7 @@ public class JefesDepto extends javax.swing.JFrame {
 
     private void modifBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifBtnActionPerformed
          if (idTxt.getText().isEmpty() || nombreTxt.getText().isEmpty() || correoTxt.getText().isEmpty() ||
-            telefonoTxt.getText().isEmpty() || tuserTxt.getText().isEmpty() || userTxt.getText().isEmpty() ||
+            telefonoTxt.getText().isEmpty() || tuserCmb.getSelectedItem()== null || userTxt.getText().isEmpty() ||
             passTxt.getText().isEmpty() || iddeptoTxt.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Hay campos vacios");
         } else {
@@ -507,7 +511,7 @@ public class JefesDepto extends javax.swing.JFrame {
         nombreTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 1).toString());
         correoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 2).toString());
         telefonoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 3).toString());
-        tuserTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 4).toString());
+        tuserCmb.setSelectedItem(tablaContenidos.getValueAt(filaSeleccionada, 4).toString());
         userTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 5).toString());
         passTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 6).toString());
         iddeptoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 7).toString());
@@ -589,8 +593,8 @@ public class JefesDepto extends javax.swing.JFrame {
     private javax.swing.JLabel telefLab;
     private javax.swing.JTextField telefonoTxt;
     private javax.swing.JButton todoBtn;
+    private javax.swing.JComboBox<String> tuserCmb;
     private javax.swing.JLabel tuserLab;
-    private javax.swing.JTextField tuserTxt;
     private javax.swing.JLabel userLab;
     private javax.swing.JTextField userTxt;
     // End of variables declaration//GEN-END:variables

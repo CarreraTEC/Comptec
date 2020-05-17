@@ -175,14 +175,12 @@ public class Deptos extends javax.swing.JFrame {
         deptoBtn = new javax.swing.JButton();
         reporteBtn = new javax.swing.JButton();
         equipoBtn = new javax.swing.JButton();
-        limpBtn = new javax.swing.JButton();
-        todoBtn = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         logoutBtn = new javax.swing.JButton();
         seperador = new javax.swing.JLabel();
         searchTxt = new javax.swing.JTextField();
         searchBtn = new javax.swing.JButton();
+        todoBtn = new javax.swing.JButton();
+        limpBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaContenidos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -287,38 +285,6 @@ public class Deptos extends javax.swing.JFrame {
         });
         getContentPane().add(equipoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 68, 68));
 
-        limpBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limp32.png"))); // NOI18N
-        limpBtn.setBorderPainted(false);
-        limpBtn.setContentAreaFilled(false);
-        limpBtn.setFocusPainted(false);
-        limpBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                limpBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(limpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, -1, -1));
-
-        todoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mostrar32.png"))); // NOI18N
-        todoBtn.setBorderPainted(false);
-        todoBtn.setContentAreaFilled(false);
-        todoBtn.setFocusPainted(false);
-        todoBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                todoBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(todoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 120, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("MOSTRAR TODO");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("LIMPIAR");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, -1, -1));
-
         logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logoutNorm.png"))); // NOI18N
         logoutBtn.setBorderPainted(false);
         logoutBtn.setContentAreaFilled(false);
@@ -357,6 +323,38 @@ public class Deptos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 15, 40, 30));
+
+        todoBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        todoBtn.setForeground(new java.awt.Color(255, 255, 255));
+        todoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mostrar32.png"))); // NOI18N
+        todoBtn.setText("MOSTRAR TODO");
+        todoBtn.setBorderPainted(false);
+        todoBtn.setContentAreaFilled(false);
+        todoBtn.setFocusPainted(false);
+        todoBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        todoBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        todoBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                todoBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(todoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 130, 50));
+
+        limpBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        limpBtn.setForeground(new java.awt.Color(255, 255, 255));
+        limpBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limp32.png"))); // NOI18N
+        limpBtn.setText("LIMPIAR");
+        limpBtn.setBorderPainted(false);
+        limpBtn.setContentAreaFilled(false);
+        limpBtn.setFocusPainted(false);
+        limpBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        limpBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        limpBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(limpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 70, 110, 50));
 
         tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -443,14 +441,6 @@ public class Deptos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_borrarBtnActionPerformed
 
-    private void limpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpBtnActionPerformed
-        limpiar();
-    }//GEN-LAST:event_limpBtnActionPerformed
-
-    private void todoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoBtnActionPerformed
-        mostrarDeptos();
-    }//GEN-LAST:event_todoBtnActionPerformed
-
     private void tablaContenidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaContenidosMouseClicked
         //Código para mandar la información del renglon seleccionado
         int filaSeleccionada = tablaContenidos.rowAtPoint(evt.getPoint());
@@ -471,6 +461,14 @@ public class Deptos extends javax.swing.JFrame {
             buscarDepto();
         }
     }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void todoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoBtnActionPerformed
+        mostrarDeptos();
+    }//GEN-LAST:event_todoBtnActionPerformed
+
+    private void limpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpBtnActionPerformed
+        limpiar();
+    }//GEN-LAST:event_limpBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -517,8 +515,6 @@ public class Deptos extends javax.swing.JFrame {
     private javax.swing.JLabel idLab;
     private javax.swing.JTextField idTxt;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jefeBtn;
     private javax.swing.JButton limpBtn;
