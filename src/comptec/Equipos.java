@@ -473,7 +473,9 @@ public class Equipos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void equipoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipoBtnActionPerformed
-
+        Equipos equipo = new Equipos();
+        equipo.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_equipoBtnActionPerformed
 
     private void deptoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptoBtnActionPerformed

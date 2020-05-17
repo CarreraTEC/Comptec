@@ -11,7 +11,7 @@ public class Login extends javax.swing.JFrame {
     ConexionBD conex = new ConexionBD();
     Connection conect = conex.conexion();
     
-    //Definimos la variable public static para utilizar mas adelante
+    //Definimos la variable public static para utilizarla en otra clase
     public static int idDepto;
     
     
@@ -39,7 +39,7 @@ public class Login extends javax.swing.JFrame {
                 this.dispose();
             //Si es jefe...
             } else if ("Jefe".equals(call.getString(3))) {
-                Equipos equip = new Equipos();
+                EquiposJ equip = new EquiposJ();
                 equip.setVisible(true);
                 this.dispose();
             } else {

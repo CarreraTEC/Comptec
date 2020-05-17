@@ -437,7 +437,9 @@ public class EquiposJ extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void equipoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipoBtnActionPerformed
-
+        EquiposJ equip = new EquiposJ();
+        equip.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_equipoBtnActionPerformed
 
     private void deptoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptoBtnActionPerformed

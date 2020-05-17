@@ -466,7 +466,9 @@ public class JefesDepto extends javax.swing.JFrame {
     }//GEN-LAST:event_deptoBtnActionPerformed
 
     private void jefeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jefeBtnActionPerformed
-        // TODO add your handling code here:
+        JefesDepto jefes = new JefesDepto();
+        jefes.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jefeBtnActionPerformed
 
     private void reporteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteBtnActionPerformed

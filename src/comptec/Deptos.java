@@ -400,7 +400,9 @@ public class Deptos extends javax.swing.JFrame {
     }//GEN-LAST:event_equipoBtnActionPerformed
 
     private void deptoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptoBtnActionPerformed
-
+        Deptos depto = new Deptos();
+        depto.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_deptoBtnActionPerformed
 
     private void jefeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jefeBtnActionPerformed
