@@ -98,15 +98,14 @@ public class Deptos extends javax.swing.JFrame {
 
         try {
             //Llamada al procedimiento almacenado
-            CallableStatement call = conect.prepareCall("call añadir_departamento(?,?,?,?,?)");
+            CallableStatement call = conect.prepareCall("call añadir_departamento(?,?,?,?)");
             //Se ingresan los parametros *EN ORDEN*
-            call.setString(1, idTxt.getText());
-            call.setString(2, nombreTxt.getText());
-            call.setString(3, correoTxt.getText());
-            call.setString(4, telefonoTxt.getText());
-            call.registerOutParameter(5, java.sql.Types.VARCHAR);
+            call.setString(1, nombreTxt.getText());
+            call.setString(2, correoTxt.getText());
+            call.setString(3, telefonoTxt.getText());
+            call.registerOutParameter(4, java.sql.Types.VARCHAR);
             call.execute();
-            JOptionPane.showMessageDialog(null, call.getString(5));
+            JOptionPane.showMessageDialog(null, call.getString(4));
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error: " + ex);
@@ -153,7 +152,6 @@ public class Deptos extends javax.swing.JFrame {
         nombreTxt.setText(null);
         correoTxt.setText(null);
         telefonoTxt.setText(null);
-        searchTxt.setText(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -194,6 +192,7 @@ public class Deptos extends javax.swing.JFrame {
         correoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(correoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 150, -1));
 
+        idTxt.setEditable(false);
         idTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 150, -1));
 
@@ -445,8 +444,9 @@ public class Deptos extends javax.swing.JFrame {
         if (idTxt.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ingrese el Id del departamento");
         } else {
-            añadir();
+            eliminar();
             mostrarDeptos();
+            limpiar();
         }
     }//GEN-LAST:event_borrarBtnActionPerformed
 
@@ -461,7 +461,7 @@ public class Deptos extends javax.swing.JFrame {
     }//GEN-LAST:event_modifBtnActionPerformed
 
     private void añadirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirBtnActionPerformed
-        if (idTxt.getText().isEmpty() || nombreTxt.getText().isEmpty() || correoTxt.getText().isEmpty()
+        if (nombreTxt.getText().isEmpty() || correoTxt.getText().isEmpty()
             || telefonoTxt.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Hay campos vacios");
         } else {

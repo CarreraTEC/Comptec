@@ -27,6 +27,7 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="nombreTxt">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="11" style="0"/>
         </Property>
@@ -39,6 +40,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="correoTxt">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="11" style="0"/>
         </Property>
@@ -51,6 +53,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="idTxt">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="11" style="0"/>
         </Property>
@@ -63,6 +66,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="telefonoTxt">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="11" style="0"/>
         </Property>

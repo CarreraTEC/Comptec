@@ -184,6 +184,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         idLab.setText("ID");
         getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 114, -1, -1));
 
+        idTxt.setEditable(false);
         idTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 150, -1));
 
@@ -192,6 +193,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         nombreLab.setText("NOMBRE");
         getContentPane().add(nombreLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 144, -1, -1));
 
+        nombreTxt.setEditable(false);
         nombreTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 150, -1));
 
@@ -200,6 +202,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         correoLab.setText("CORREO");
         getContentPane().add(correoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 174, -1, -1));
 
+        correoTxt.setEditable(false);
         correoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(correoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 150, -1));
 
@@ -208,6 +211,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         telefLab.setText("TELÉFONO");
         getContentPane().add(telefLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 114, -1, -1));
 
+        telefonoTxt.setEditable(false);
         telefonoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(telefonoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 150, -1));
 
@@ -221,6 +225,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         iddeptoLab.setText("ID DEPTO.");
         getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 174, -1, -1));
 
+        iddeptoTxt.setEditable(false);
         iddeptoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 150, -1));
 

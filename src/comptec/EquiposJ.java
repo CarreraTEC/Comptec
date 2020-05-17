@@ -266,6 +266,7 @@ public class EquiposJ extends javax.swing.JFrame {
         idLab.setText("ID");
         getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 94, -1, -1));
 
+        idTxt.setEditable(false);
         idTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 150, -1));
 
@@ -274,6 +275,7 @@ public class EquiposJ extends javax.swing.JFrame {
         inventLab.setText("NO. INVENTARIO");
         getContentPane().add(inventLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 124, -1, -1));
 
+        inventTxt.setEditable(false);
         inventTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         getContentPane().add(inventTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 150, -1));
 
@@ -282,6 +284,7 @@ public class EquiposJ extends javax.swing.JFrame {
         serieLab.setText("NO. SERIE");
         getContentPane().add(serieLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 154, -1, -1));
 
+        serieTxt.setEditable(false);
         serieTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         getContentPane().add(serieTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 150, -1));
 
@@ -290,6 +293,7 @@ public class EquiposJ extends javax.swing.JFrame {
         modeloLab.setText("MODELO");
         getContentPane().add(modeloLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 184, -1, -1));
 
+        modeloTxt.setEditable(false);
         modeloTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         getContentPane().add(modeloTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 150, -1));
 
@@ -313,12 +317,15 @@ public class EquiposJ extends javax.swing.JFrame {
         estadoLab.setText("ESTADO");
         getContentPane().add(estadoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 154, -1, -1));
 
+        discoTxt.setEditable(false);
         discoTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         getContentPane().add(discoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 150, -1));
 
+        ramTxt.setEditable(false);
         ramTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         getContentPane().add(ramTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 150, -1));
 
+        proceTxt.setEditable(false);
         proceTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         getContentPane().add(proceTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 150, -1));
 
@@ -343,6 +350,7 @@ public class EquiposJ extends javax.swing.JFrame {
         iddeptoLab.setText("ID DEPTO.");
         getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 184, -1, -1));
 
+        iddeptoTxt.setEditable(false);
         iddeptoTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 150, -1));
 

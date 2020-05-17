@@ -118,20 +118,19 @@ public class Equipos extends javax.swing.JFrame {
 
         try {
             //Llamada al procedimiento almacenado
-            CallableStatement call = conect.prepareCall("call añadir_equipo(?,?,?,?,?,?,?,?,?,?)");
+            CallableStatement call = conect.prepareCall("call añadir_equipo(?,?,?,?,?,?,?,?,?)");
             //Se ingresan los parametros *EN ORDEN*
-            call.setString(1, idTxt.getText());
-            call.setString(2, inventTxt.getText());
-            call.setString(3, serieTxt.getText());
-            call.setString(4, modeloTxt.getText());
-            call.setString(5, proceTxt.getText());
-            call.setString(6, ramTxt.getText());
-            call.setString(7, discoTxt.getText());
-            call.setString(8, (String) estadoCmb.getSelectedItem());
-            call.setString(9, iddeptoTxt.getText());
-            call.registerOutParameter(10, java.sql.Types.VARCHAR);
+            call.setString(1, inventTxt.getText());
+            call.setString(2, serieTxt.getText());
+            call.setString(3, modeloTxt.getText());
+            call.setString(4, proceTxt.getText());
+            call.setString(5, ramTxt.getText());
+            call.setString(6, discoTxt.getText());
+            call.setString(7, (String) estadoCmb.getSelectedItem());
+            call.setString(8, iddeptoTxt.getText());
+            call.registerOutParameter(9, java.sql.Types.VARCHAR);
             call.execute();
-            JOptionPane.showMessageDialog(null, call.getString(10));
+            JOptionPane.showMessageDialog(null, call.getString(9));
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error: " + ex);
@@ -188,7 +187,6 @@ public class Equipos extends javax.swing.JFrame {
         discoTxt.setText(null);
         estadoCmb.setSelectedItem(null);
         iddeptoTxt.setText(null);
-        searchTxt.setText(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -269,6 +267,7 @@ public class Equipos extends javax.swing.JFrame {
         idLab.setText("ID");
         getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 94, -1, -1));
 
+        idTxt.setEditable(false);
         idTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 150, -1));
 
@@ -500,7 +499,7 @@ public class Equipos extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void añadirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirBtnActionPerformed
-        if (idTxt.getText().isEmpty() || inventTxt.getText().isEmpty() || serieTxt.getText().isEmpty()
+        if (inventTxt.getText().isEmpty() || serieTxt.getText().isEmpty()
                 || modeloTxt.getText().isEmpty() || proceTxt.getText().isEmpty() || ramTxt.getText().isEmpty()
                 || discoTxt.getText().isEmpty() || estadoCmb.getSelectedItem()== null || iddeptoTxt.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Hay campos vacios");
@@ -527,6 +526,7 @@ public class Equipos extends javax.swing.JFrame {
         } else {
             eliminar();
             mostrarEquipos();
+            limpiar();
         }
     }//GEN-LAST:event_borrarBtnActionPerformed
 

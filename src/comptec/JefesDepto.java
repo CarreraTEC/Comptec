@@ -112,19 +112,18 @@ public class JefesDepto extends javax.swing.JFrame {
 
         try {
             //Llamada al procedimiento almacenado
-            CallableStatement call = conect.prepareCall("call añadir_jefe(?,?,?,?,?,?,?,?,?)");
+            CallableStatement call = conect.prepareCall("call añadir_jefe(?,?,?,?,?,?,?,?)");
             //Se ingresan los parametros *EN ORDEN*
-            call.setString(1, idTxt.getText());
-            call.setString(2, nombreTxt.getText());
-            call.setString(3, correoTxt.getText());
-            call.setString(4, telefonoTxt.getText());
-            call.setString(5, (String) tuserCmb.getSelectedItem());
-            call.setString(6, userTxt.getText());
-            call.setString(7, passTxt.getText());
-            call.setString(8, iddeptoTxt.getText());
-            call.registerOutParameter(9, java.sql.Types.VARCHAR);
+            call.setString(1, nombreTxt.getText());
+            call.setString(2, correoTxt.getText());
+            call.setString(3, telefonoTxt.getText());
+            call.setString(4, (String) tuserCmb.getSelectedItem());
+            call.setString(5, userTxt.getText());
+            call.setString(6, passTxt.getText());
+            call.setString(7, iddeptoTxt.getText());
+            call.registerOutParameter(8, java.sql.Types.VARCHAR);
             call.execute();
-            JOptionPane.showMessageDialog(null, call.getString(9));
+            JOptionPane.showMessageDialog(null, call.getString(8));
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error: " + ex);
@@ -179,7 +178,6 @@ public class JefesDepto extends javax.swing.JFrame {
         userTxt.setText(null);
         passTxt.setText(null);
         iddeptoTxt.setText(null);
-        searchTxt.setText(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -258,6 +256,7 @@ public class JefesDepto extends javax.swing.JFrame {
         idLab.setText("ID");
         getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 94, -1, -1));
 
+        idTxt.setEditable(false);
         idTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 150, -1));
 
@@ -481,7 +480,7 @@ public class JefesDepto extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void añadirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirBtnActionPerformed
-        if (idTxt.getText().isEmpty() || nombreTxt.getText().isEmpty() || correoTxt.getText().isEmpty() ||
+        if (nombreTxt.getText().isEmpty() || correoTxt.getText().isEmpty() ||
             telefonoTxt.getText().isEmpty() || tuserCmb.getSelectedItem()== null || userTxt.getText().isEmpty() ||
             passTxt.getText().isEmpty() || iddeptoTxt.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Hay campos vacios");
@@ -508,6 +507,7 @@ public class JefesDepto extends javax.swing.JFrame {
         } else {
             eliminar();
             mostrarJefes();
+            limpiar();
         }
     }//GEN-LAST:event_borrarBtnActionPerformed
 

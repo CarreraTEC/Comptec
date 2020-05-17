@@ -185,15 +185,19 @@ public class DeptosJ extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        nombreTxt.setEditable(false);
         nombreTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 150, -1));
 
+        correoTxt.setEditable(false);
         correoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(correoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 150, -1));
 
+        idTxt.setEditable(false);
         idTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 150, -1));
 
+        telefonoTxt.setEditable(false);
         telefonoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(telefonoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 150, -1));
 
