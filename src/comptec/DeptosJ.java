@@ -200,22 +200,22 @@ public class DeptosJ extends javax.swing.JFrame {
         telefonoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         telefonoLab.setForeground(new java.awt.Color(255, 255, 255));
         telefonoLab.setText("TELEFONO");
-        getContentPane().add(telefonoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, -1));
+        getContentPane().add(telefonoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 134, -1, -1));
 
         correoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         correoLab.setForeground(new java.awt.Color(255, 255, 255));
         correoLab.setText("CORREO");
-        getContentPane().add(correoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, -1, -1));
+        getContentPane().add(correoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 104, -1, -1));
 
         idLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         idLab.setForeground(new java.awt.Color(255, 255, 255));
         idLab.setText("ID");
-        getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 20, -1));
+        getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 104, 20, -1));
 
         nombreLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         nombreLab.setForeground(new java.awt.Color(255, 255, 255));
         nombreLab.setText("NOMBRE");
-        getContentPane().add(nombreLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
+        getContentPane().add(nombreLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 134, -1, -1));
 
         jefeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/jefeNorm.png"))); // NOI18N
         jefeBtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/jefeNorm.png"))); // NOI18N
@@ -230,11 +230,6 @@ public class DeptosJ extends javax.swing.JFrame {
         deptoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/depNorm.png"))); // NOI18N
         deptoBtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/depNorm.png"))); // NOI18N
         deptoBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/depRoll.png"))); // NOI18N
-        deptoBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deptoBtnActionPerformed(evt);
-            }
-        });
         getContentPane().add(deptoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 68, 68));
 
         reporteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/repoNorm.png"))); // NOI18N
@@ -363,12 +358,6 @@ public class DeptosJ extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_equipoBtnActionPerformed
 
-    private void deptoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptoBtnActionPerformed
-        DeptosJ deptos = new DeptosJ();
-        deptos.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_deptoBtnActionPerformed
-
     private void jefeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jefeBtnActionPerformed
         JefesDeptoJ jefes = new JefesDeptoJ();
         jefes.setVisible(true);
@@ -376,7 +365,7 @@ public class DeptosJ extends javax.swing.JFrame {
     }//GEN-LAST:event_jefeBtnActionPerformed
 
     private void reporteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteBtnActionPerformed
-        Reportes report = new Reportes();
+        ReportesJ report = new ReportesJ();
         report.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_reporteBtnActionPerformed

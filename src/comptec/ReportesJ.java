@@ -1,9 +1,9 @@
 
 package comptec;
 
-public class Reportes extends javax.swing.JFrame {
+public class ReportesJ extends javax.swing.JFrame {
 
-    public Reportes() {
+    public ReportesJ() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -234,19 +234,19 @@ public class Reportes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void equipoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipoBtnActionPerformed
-        Equipos equip = new Equipos();
+        EquiposJ equip = new EquiposJ();
         equip.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_equipoBtnActionPerformed
 
     private void deptoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptoBtnActionPerformed
-        Deptos deptos = new Deptos();
+        DeptosJ deptos = new DeptosJ();
         deptos.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_deptoBtnActionPerformed
 
     private void jefeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jefeBtnActionPerformed
-        JefesDepto jefes = new JefesDepto();
+        JefesDeptoJ jefes = new JefesDeptoJ();
         jefes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jefeBtnActionPerformed
@@ -282,20 +282,21 @@ public class Reportes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportesJ.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportesJ.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportesJ.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportesJ.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Reportes().setVisible(true);
+                new ReportesJ().setVisible(true);
             }
         });
     }

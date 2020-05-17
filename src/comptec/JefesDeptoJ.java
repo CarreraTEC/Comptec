@@ -48,7 +48,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
             }
             tablaContenidos.setModel(model);
             //Definir ancho de las columnas
-            int[] anchos = {5, 180, 100, 50, 35, 30, 10, 25};
+            int[] anchos = {5, 190, 150, 50, 35, 10};
             for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
                 tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
             }
@@ -168,11 +168,6 @@ public class JefesDeptoJ extends javax.swing.JFrame {
 
         jefeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/jefeNorm.png"))); // NOI18N
         jefeBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/jefeRoll.png"))); // NOI18N
-        jefeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jefeBtnActionPerformed(evt);
-            }
-        });
         getContentPane().add(jefeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 68, 68));
 
         reporteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/repoNorm.png"))); // NOI18N
@@ -187,7 +182,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         idLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         idLab.setForeground(new java.awt.Color(255, 255, 255));
         idLab.setText("ID");
-        getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
+        getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 114, -1, -1));
 
         idTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 150, -1));
@@ -195,7 +190,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         nombreLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         nombreLab.setForeground(new java.awt.Color(255, 255, 255));
         nombreLab.setText("NOMBRE");
-        getContentPane().add(nombreLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
+        getContentPane().add(nombreLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 144, -1, -1));
 
         nombreTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 150, -1));
@@ -203,7 +198,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         correoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         correoLab.setForeground(new java.awt.Color(255, 255, 255));
         correoLab.setText("CORREO");
-        getContentPane().add(correoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
+        getContentPane().add(correoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 174, -1, -1));
 
         correoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(correoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 150, -1));
@@ -211,7 +206,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         telefLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         telefLab.setForeground(new java.awt.Color(255, 255, 255));
         telefLab.setText("TELÉFONO");
-        getContentPane().add(telefLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, -1, -1));
+        getContentPane().add(telefLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 114, -1, -1));
 
         telefonoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(telefonoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 150, -1));
@@ -219,12 +214,12 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         tuserLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         tuserLab.setForeground(new java.awt.Color(255, 255, 255));
         tuserLab.setText("TIPO USUARIO");
-        getContentPane().add(tuserLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
+        getContentPane().add(tuserLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 144, -1, -1));
 
         iddeptoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         iddeptoLab.setForeground(new java.awt.Color(255, 255, 255));
         iddeptoLab.setText("ID DEPTO.");
-        getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
+        getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 174, -1, -1));
 
         iddeptoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 150, -1));
@@ -303,7 +298,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         tuserCmb.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(tuserCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 150, -1));
 
-        tablaContenidos.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        tablaContenidos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -342,14 +337,8 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_deptoBtnActionPerformed
 
-    private void jefeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jefeBtnActionPerformed
-        JefesDeptoJ jefes = new JefesDeptoJ();
-        jefes.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jefeBtnActionPerformed
-
     private void reporteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteBtnActionPerformed
-        Reportes report = new Reportes();
+        ReportesJ report = new ReportesJ();
         report.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_reporteBtnActionPerformed

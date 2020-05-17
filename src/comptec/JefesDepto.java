@@ -66,8 +66,8 @@ public class JefesDepto extends javax.swing.JFrame {
 
     public void buscarJefe() {
         //Definir encabezados de la tabla
-        String[] titulos = {"Id", "Nombre", "Correo", "Teléfono","TipoUsuario","Usuario",
-        "Contraseña","IdDepto"};
+        String[] titulos = {"Id", "Nombre", "Correo", "Teléfono","TipoUser","User",
+        "Pass","IdDepto"};
         //Definir los registros
         String[] registros = new String[8];
         
@@ -96,7 +96,7 @@ public class JefesDepto extends javax.swing.JFrame {
             }
             tablaContenidos.setModel(model);
             //Definir ancho de las columnas
-            int[] anchos = {10, 200, 100, 50, 10, 10, 10, 10};
+            int[] anchos = {5, 180, 100, 50, 35, 30, 10, 25};
             for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
                 tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
             }
@@ -242,11 +242,6 @@ public class JefesDepto extends javax.swing.JFrame {
 
         jefeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/jefeNorm.png"))); // NOI18N
         jefeBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/jefeRoll.png"))); // NOI18N
-        jefeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jefeBtnActionPerformed(evt);
-            }
-        });
         getContentPane().add(jefeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 68, 68));
 
         reporteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/repoNorm.png"))); // NOI18N
@@ -261,7 +256,7 @@ public class JefesDepto extends javax.swing.JFrame {
         idLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         idLab.setForeground(new java.awt.Color(255, 255, 255));
         idLab.setText("ID");
-        getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
+        getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 94, -1, -1));
 
         idTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 150, -1));
@@ -269,7 +264,7 @@ public class JefesDepto extends javax.swing.JFrame {
         nombreLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         nombreLab.setForeground(new java.awt.Color(255, 255, 255));
         nombreLab.setText("NOMBRE");
-        getContentPane().add(nombreLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+        getContentPane().add(nombreLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 124, -1, -1));
 
         nombreTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 150, -1));
@@ -277,7 +272,7 @@ public class JefesDepto extends javax.swing.JFrame {
         correoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         correoLab.setForeground(new java.awt.Color(255, 255, 255));
         correoLab.setText("CORREO");
-        getContentPane().add(correoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
+        getContentPane().add(correoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 154, -1, -1));
 
         correoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(correoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 150, -1));
@@ -285,7 +280,7 @@ public class JefesDepto extends javax.swing.JFrame {
         telefLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         telefLab.setForeground(new java.awt.Color(255, 255, 255));
         telefLab.setText("TELÉFONO");
-        getContentPane().add(telefLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
+        getContentPane().add(telefLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 184, -1, -1));
 
         telefonoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(telefonoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 150, -1));
@@ -293,22 +288,22 @@ public class JefesDepto extends javax.swing.JFrame {
         tuserLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         tuserLab.setForeground(new java.awt.Color(255, 255, 255));
         tuserLab.setText("TIPO USUARIO");
-        getContentPane().add(tuserLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, -1));
+        getContentPane().add(tuserLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 214, -1, -1));
 
         userLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         userLab.setForeground(new java.awt.Color(255, 255, 255));
         userLab.setText("USUARIO");
-        getContentPane().add(userLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, -1, -1));
+        getContentPane().add(userLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 94, -1, -1));
 
         passLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         passLab.setForeground(new java.awt.Color(255, 255, 255));
         passLab.setText("CONTRASEÑA");
-        getContentPane().add(passLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
+        getContentPane().add(passLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 124, -1, -1));
 
         iddeptoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         iddeptoLab.setForeground(new java.awt.Color(255, 255, 255));
         iddeptoLab.setText("ID DEPTO.");
-        getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, -1));
+        getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 154, -1, -1));
 
         iddeptoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 150, -1));
@@ -464,12 +459,6 @@ public class JefesDepto extends javax.swing.JFrame {
         depto.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_deptoBtnActionPerformed
-
-    private void jefeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jefeBtnActionPerformed
-        JefesDepto jefes = new JefesDepto();
-        jefes.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jefeBtnActionPerformed
 
     private void reporteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteBtnActionPerformed
         Reportes report = new Reportes();
