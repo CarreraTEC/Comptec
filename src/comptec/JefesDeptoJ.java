@@ -134,13 +134,13 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         tuserLab = new javax.swing.JLabel();
         iddeptoLab = new javax.swing.JLabel();
         iddeptoTxt = new javax.swing.JTextField();
-        limpBtn = new javax.swing.JButton();
-        todoBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
-        searchTxt = new javax.swing.JTextField();
-        seperador = new javax.swing.JLabel();
-        searchBtn = new javax.swing.JButton();
         tuserCmb = new javax.swing.JComboBox<>();
+        todoBtn = new javax.swing.JButton();
+        limpBtn = new javax.swing.JButton();
+        searchBtn = new javax.swing.JButton();
+        seperador = new javax.swing.JLabel();
+        searchTxt = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaContenidos = new javax.swing.JTable();
         Fondo = new javax.swing.JLabel();
@@ -186,7 +186,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
 
         idTxt.setEditable(false);
         idTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 150, -1));
+        getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 200, -1));
 
         nombreLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         nombreLab.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,7 +195,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
 
         nombreTxt.setEditable(false);
         nombreTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        getContentPane().add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 150, -1));
+        getContentPane().add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 200, -1));
 
         correoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         correoLab.setForeground(new java.awt.Color(255, 255, 255));
@@ -204,46 +204,44 @@ public class JefesDeptoJ extends javax.swing.JFrame {
 
         correoTxt.setEditable(false);
         correoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        getContentPane().add(correoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 150, -1));
+        getContentPane().add(correoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 200, -1));
 
         telefLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         telefLab.setForeground(new java.awt.Color(255, 255, 255));
         telefLab.setText("TELÉFONO");
-        getContentPane().add(telefLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 114, -1, -1));
+        getContentPane().add(telefLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 114, -1, -1));
 
         telefonoTxt.setEditable(false);
         telefonoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        getContentPane().add(telefonoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 150, -1));
+        getContentPane().add(telefonoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 200, -1));
 
         tuserLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         tuserLab.setForeground(new java.awt.Color(255, 255, 255));
         tuserLab.setText("TIPO USUARIO");
-        getContentPane().add(tuserLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 144, -1, -1));
+        getContentPane().add(tuserLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 144, -1, -1));
 
         iddeptoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         iddeptoLab.setForeground(new java.awt.Color(255, 255, 255));
         iddeptoLab.setText("ID DEPTO.");
-        getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 174, -1, -1));
+        getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 174, -1, -1));
 
         iddeptoTxt.setEditable(false);
         iddeptoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 150, -1));
+        getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 200, -1));
 
-        limpBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        limpBtn.setForeground(new java.awt.Color(255, 255, 255));
-        limpBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limp32.png"))); // NOI18N
-        limpBtn.setText("LIMPIAR");
-        limpBtn.setBorderPainted(false);
-        limpBtn.setContentAreaFilled(false);
-        limpBtn.setFocusPainted(false);
-        limpBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        limpBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        limpBtn.addActionListener(new java.awt.event.ActionListener() {
+        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logoutNorm.png"))); // NOI18N
+        logoutBtn.setBorderPainted(false);
+        logoutBtn.setContentAreaFilled(false);
+        logoutBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logoutRoll.png"))); // NOI18N
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                limpBtnActionPerformed(evt);
+                logoutBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(limpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 90, 110, 50));
+        getContentPane().add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 68, 68));
+
+        tuserCmb.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        getContentPane().add(tuserCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 200, -1));
 
         todoBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         todoBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -259,18 +257,38 @@ public class JefesDeptoJ extends javax.swing.JFrame {
                 todoBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(todoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 130, 50));
+        getContentPane().add(todoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 150, 130, 50));
 
-        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logoutNorm.png"))); // NOI18N
-        logoutBtn.setBorderPainted(false);
-        logoutBtn.setContentAreaFilled(false);
-        logoutBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logoutRoll.png"))); // NOI18N
-        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+        limpBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        limpBtn.setForeground(new java.awt.Color(255, 255, 255));
+        limpBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limp32.png"))); // NOI18N
+        limpBtn.setText("LIMPIAR");
+        limpBtn.setBorderPainted(false);
+        limpBtn.setContentAreaFilled(false);
+        limpBtn.setFocusPainted(false);
+        limpBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        limpBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        limpBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutBtnActionPerformed(evt);
+                limpBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 68, 68));
+        getContentPane().add(limpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 90, 110, 50));
+
+        searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32.png"))); // NOI18N
+        searchBtn.setContentAreaFilled(false);
+        searchBtn.setFocusPainted(false);
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 40, 30));
+
+        seperador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        seperador.setForeground(new java.awt.Color(255, 255, 255));
+        seperador.setText("_____________");
+        getContentPane().add(seperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, 110, -1));
 
         searchTxt.setBackground(new java.awt.Color(1, 76, 168));
         searchTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -283,25 +301,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
                 searchTxtMouseClicked(evt);
             }
         });
-        getContentPane().add(searchTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 22, 100, -1));
-
-        seperador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        seperador.setForeground(new java.awt.Color(255, 255, 255));
-        seperador.setText("_____________");
-        getContentPane().add(seperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 25, 110, -1));
-
-        searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32.png"))); // NOI18N
-        searchBtn.setContentAreaFilled(false);
-        searchBtn.setFocusPainted(false);
-        searchBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 15, 40, 30));
-
-        tuserCmb.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        getContentPane().add(tuserCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 150, -1));
+        getContentPane().add(searchTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 27, 100, -1));
 
         tablaContenidos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
@@ -322,12 +322,12 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaContenidos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 690, 320));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 800, 320));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/jefesbg.png"))); // NOI18N
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 620));
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/jefes.png"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 620));
 
-        pack();
+        setBounds(0, 0, 926, 657);
     }// </editor-fold>//GEN-END:initComponents
 
     private void equipoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipoBtnActionPerformed
@@ -348,14 +348,6 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_reporteBtnActionPerformed
 
-    private void limpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpBtnActionPerformed
-        limpiar();
-    }//GEN-LAST:event_limpBtnActionPerformed
-
-    private void todoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoBtnActionPerformed
-        mostrarJefes();
-    }//GEN-LAST:event_todoBtnActionPerformed
-
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         Login login = new Login();
         login.setVisible(true);
@@ -373,9 +365,13 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         iddeptoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 5).toString());
     }//GEN-LAST:event_tablaContenidosMouseClicked
 
-    private void searchTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTxtMouseClicked
-        searchTxt.setText(null);
-    }//GEN-LAST:event_searchTxtMouseClicked
+    private void todoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoBtnActionPerformed
+        mostrarJefes();
+    }//GEN-LAST:event_todoBtnActionPerformed
+
+    private void limpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpBtnActionPerformed
+        limpiar();
+    }//GEN-LAST:event_limpBtnActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         if (searchTxt.getText().isEmpty()){
@@ -384,6 +380,10 @@ public class JefesDeptoJ extends javax.swing.JFrame {
             buscarJefe();
         }
     }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void searchTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTxtMouseClicked
+        searchTxt.setText(null);
+    }//GEN-LAST:event_searchTxtMouseClicked
 
     /**
      * @param args the command line arguments

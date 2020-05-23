@@ -269,7 +269,7 @@ public class Equipos extends javax.swing.JFrame {
 
         idTxt.setEditable(false);
         idTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 150, -1));
+        getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 200, -1));
 
         inventLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         inventLab.setForeground(new java.awt.Color(255, 255, 255));
@@ -277,7 +277,7 @@ public class Equipos extends javax.swing.JFrame {
         getContentPane().add(inventLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 124, -1, -1));
 
         inventTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        getContentPane().add(inventTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 150, -1));
+        getContentPane().add(inventTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 200, -1));
 
         serieLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         serieLab.setForeground(new java.awt.Color(255, 255, 255));
@@ -285,7 +285,7 @@ public class Equipos extends javax.swing.JFrame {
         getContentPane().add(serieLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 154, -1, -1));
 
         serieTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        getContentPane().add(serieTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 150, -1));
+        getContentPane().add(serieTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 200, -1));
 
         modeloLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         modeloLab.setForeground(new java.awt.Color(255, 255, 255));
@@ -293,7 +293,7 @@ public class Equipos extends javax.swing.JFrame {
         getContentPane().add(modeloLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 184, -1, -1));
 
         modeloTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        getContentPane().add(modeloTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 150, -1));
+        getContentPane().add(modeloTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 200, -1));
 
         proceLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         proceLab.setForeground(new java.awt.Color(255, 255, 255));
@@ -303,26 +303,26 @@ public class Equipos extends javax.swing.JFrame {
         ramLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ramLab.setForeground(new java.awt.Color(255, 255, 255));
         ramLab.setText("MEMORIA RAM");
-        getContentPane().add(ramLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 94, -1, -1));
+        getContentPane().add(ramLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 94, -1, -1));
 
         discoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         discoLab.setForeground(new java.awt.Color(255, 255, 255));
         discoLab.setText("DISCO DURO");
-        getContentPane().add(discoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 124, -1, -1));
+        getContentPane().add(discoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 124, -1, -1));
 
         estadoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         estadoLab.setForeground(new java.awt.Color(255, 255, 255));
         estadoLab.setText("ESTADO");
-        getContentPane().add(estadoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 154, -1, -1));
+        getContentPane().add(estadoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 154, -1, -1));
 
         discoTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        getContentPane().add(discoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 150, -1));
+        getContentPane().add(discoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 200, -1));
 
         ramTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        getContentPane().add(ramTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 150, -1));
+        getContentPane().add(ramTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 90, 200, -1));
 
         proceTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        getContentPane().add(proceTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 150, -1));
+        getContentPane().add(proceTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 200, -1));
 
         limpBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         limpBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -338,7 +338,7 @@ public class Equipos extends javax.swing.JFrame {
                 limpBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(limpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 90, 110, 50));
+        getContentPane().add(limpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 90, 110, 50));
 
         modifBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modif32.png"))); // NOI18N
         modifBtn.setBorderPainted(false);
@@ -349,7 +349,7 @@ public class Equipos extends javax.swing.JFrame {
                 modifBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(modifBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 218, 30, 30));
+        getContentPane().add(modifBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 215, 30, 30));
 
         borrarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/delete32.png"))); // NOI18N
         borrarBtn.setBorderPainted(false);
@@ -360,15 +360,15 @@ public class Equipos extends javax.swing.JFrame {
                 borrarBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(borrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 218, 40, 32));
+        getContentPane().add(borrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 215, 40, 32));
 
         iddeptoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         iddeptoLab.setForeground(new java.awt.Color(255, 255, 255));
         iddeptoLab.setText("ID DEPTO.");
-        getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 184, -1, -1));
+        getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 184, -1, -1));
 
         iddeptoTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 150, -1));
+        getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 200, -1));
 
         añadirBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add32.png"))); // NOI18N
         añadirBtn.setBorderPainted(false);
@@ -379,7 +379,7 @@ public class Equipos extends javax.swing.JFrame {
                 añadirBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(añadirBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 218, 30, 30));
+        getContentPane().add(añadirBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 215, 30, 30));
 
         todoBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         todoBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -395,7 +395,7 @@ public class Equipos extends javax.swing.JFrame {
                 todoBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(todoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 130, 50));
+        getContentPane().add(todoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 150, 130, 50));
 
         logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logoutNorm.png"))); // NOI18N
         logoutBtn.setBorderPainted(false);
@@ -419,12 +419,12 @@ public class Equipos extends javax.swing.JFrame {
                 searchTxtMouseClicked(evt);
             }
         });
-        getContentPane().add(searchTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 22, 100, -1));
+        getContentPane().add(searchTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 27, 100, -1));
 
         seperador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         seperador.setForeground(new java.awt.Color(255, 255, 255));
         seperador.setText("_____________");
-        getContentPane().add(seperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 25, 110, -1));
+        getContentPane().add(seperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, 110, -1));
 
         searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32.png"))); // NOI18N
         searchBtn.setContentAreaFilled(false);
@@ -434,10 +434,10 @@ public class Equipos extends javax.swing.JFrame {
                 searchBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 15, 40, 30));
+        getContentPane().add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 40, 30));
 
         estadoCmb.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        getContentPane().add(estadoCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 150, -1));
+        getContentPane().add(estadoCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 200, -1));
 
         tablaContenidos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
@@ -458,10 +458,10 @@ public class Equipos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaContenidos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 690, 320));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 800, 320));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/equiposbg.png"))); // NOI18N
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 620));
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/equipos.png"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
