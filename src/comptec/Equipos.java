@@ -212,6 +212,7 @@ public class Equipos extends javax.swing.JFrame {
         discoTxt = new javax.swing.JTextField();
         ramTxt = new javax.swing.JTextField();
         proceTxt = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         limpBtn = new javax.swing.JButton();
         modifBtn = new javax.swing.JButton();
         borrarBtn = new javax.swing.JButton();
@@ -324,6 +325,10 @@ public class Equipos extends javax.swing.JFrame {
         proceTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         getContentPane().add(proceTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 200, -1));
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8_search_property_16px.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 183, 30, 20));
+
         limpBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         limpBtn.setForeground(new java.awt.Color(255, 255, 255));
         limpBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limp32.png"))); // NOI18N
@@ -332,6 +337,7 @@ public class Equipos extends javax.swing.JFrame {
         limpBtn.setContentAreaFilled(false);
         limpBtn.setFocusPainted(false);
         limpBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        limpBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limp32_r.png"))); // NOI18N
         limpBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         limpBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,6 +350,7 @@ public class Equipos extends javax.swing.JFrame {
         modifBtn.setBorderPainted(false);
         modifBtn.setContentAreaFilled(false);
         modifBtn.setFocusPainted(false);
+        modifBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modif32_r.png"))); // NOI18N
         modifBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modifBtnActionPerformed(evt);
@@ -355,6 +362,7 @@ public class Equipos extends javax.swing.JFrame {
         borrarBtn.setBorderPainted(false);
         borrarBtn.setContentAreaFilled(false);
         borrarBtn.setFocusPainted(false);
+        borrarBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/delete32_r.png"))); // NOI18N
         borrarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 borrarBtnActionPerformed(evt);
@@ -374,6 +382,7 @@ public class Equipos extends javax.swing.JFrame {
         añadirBtn.setBorderPainted(false);
         añadirBtn.setContentAreaFilled(false);
         añadirBtn.setFocusPainted(false);
+        añadirBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add32_r.png"))); // NOI18N
         añadirBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 añadirBtnActionPerformed(evt);
@@ -389,6 +398,7 @@ public class Equipos extends javax.swing.JFrame {
         todoBtn.setContentAreaFilled(false);
         todoBtn.setFocusPainted(false);
         todoBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        todoBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mostrar32_r.png"))); // NOI18N
         todoBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         todoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -429,6 +439,7 @@ public class Equipos extends javax.swing.JFrame {
         searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32.png"))); // NOI18N
         searchBtn.setContentAreaFilled(false);
         searchBtn.setFocusPainted(false);
+        searchBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32_r.png"))); // NOI18N
         searchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchBtnActionPerformed(evt);
@@ -608,6 +619,7 @@ public class Equipos extends javax.swing.JFrame {
     private javax.swing.JTextField iddeptoTxt;
     private javax.swing.JLabel inventLab;
     private javax.swing.JTextField inventTxt;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jefeBtn;
     private javax.swing.JButton limpBtn;

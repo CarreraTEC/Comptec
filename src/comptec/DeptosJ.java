@@ -173,11 +173,11 @@ public class DeptosJ extends javax.swing.JFrame {
         reporteBtn = new javax.swing.JButton();
         equipoBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
-        seperador = new javax.swing.JLabel();
-        searchTxt = new javax.swing.JTextField();
-        searchBtn = new javax.swing.JButton();
-        todoBtn = new javax.swing.JButton();
         limpBtn = new javax.swing.JButton();
+        todoBtn = new javax.swing.JButton();
+        searchBtn = new javax.swing.JButton();
+        searchTxt = new javax.swing.JTextField();
+        seperador = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaContenidos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -267,10 +267,50 @@ public class DeptosJ extends javax.swing.JFrame {
         });
         getContentPane().add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 68, 68));
 
-        seperador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        seperador.setForeground(new java.awt.Color(255, 255, 255));
-        seperador.setText("_____________");
-        getContentPane().add(seperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, 110, -1));
+        limpBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        limpBtn.setForeground(new java.awt.Color(255, 255, 255));
+        limpBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limp32.png"))); // NOI18N
+        limpBtn.setText("LIMPIAR");
+        limpBtn.setBorderPainted(false);
+        limpBtn.setContentAreaFilled(false);
+        limpBtn.setFocusPainted(false);
+        limpBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        limpBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limp32_r.png"))); // NOI18N
+        limpBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        limpBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(limpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 75, 110, 50));
+
+        todoBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        todoBtn.setForeground(new java.awt.Color(255, 255, 255));
+        todoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mostrar32.png"))); // NOI18N
+        todoBtn.setText("MOSTRAR TODO");
+        todoBtn.setBorderPainted(false);
+        todoBtn.setContentAreaFilled(false);
+        todoBtn.setFocusPainted(false);
+        todoBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        todoBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mostrar32_r.png"))); // NOI18N
+        todoBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        todoBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                todoBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(todoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 135, 130, 50));
+
+        searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32.png"))); // NOI18N
+        searchBtn.setContentAreaFilled(false);
+        searchBtn.setFocusPainted(false);
+        searchBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32_r.png"))); // NOI18N
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 40, 30));
 
         searchTxt.setBackground(new java.awt.Color(1, 76, 168));
         searchTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -285,47 +325,10 @@ public class DeptosJ extends javax.swing.JFrame {
         });
         getContentPane().add(searchTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 27, 100, -1));
 
-        searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32.png"))); // NOI18N
-        searchBtn.setContentAreaFilled(false);
-        searchBtn.setFocusPainted(false);
-        searchBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 40, 30));
-
-        todoBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        todoBtn.setForeground(new java.awt.Color(255, 255, 255));
-        todoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mostrar32.png"))); // NOI18N
-        todoBtn.setText("MOSTRAR TODO");
-        todoBtn.setBorderPainted(false);
-        todoBtn.setContentAreaFilled(false);
-        todoBtn.setFocusPainted(false);
-        todoBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        todoBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        todoBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                todoBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(todoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 135, 130, 50));
-
-        limpBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        limpBtn.setForeground(new java.awt.Color(255, 255, 255));
-        limpBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limp32.png"))); // NOI18N
-        limpBtn.setText("LIMPIAR");
-        limpBtn.setBorderPainted(false);
-        limpBtn.setContentAreaFilled(false);
-        limpBtn.setFocusPainted(false);
-        limpBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        limpBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        limpBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                limpBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(limpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 75, 110, 50));
+        seperador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        seperador.setForeground(new java.awt.Color(255, 255, 255));
+        seperador.setText("_____________");
+        getContentPane().add(seperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, 110, -1));
 
         tablaContenidos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
@@ -389,9 +392,13 @@ public class DeptosJ extends javax.swing.JFrame {
         telefonoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 3).toString());
     }//GEN-LAST:event_tablaContenidosMouseClicked
 
-    private void searchTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTxtMouseClicked
-        searchTxt.setText(null);
-    }//GEN-LAST:event_searchTxtMouseClicked
+    private void limpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpBtnActionPerformed
+        limpiar();
+    }//GEN-LAST:event_limpBtnActionPerformed
+
+    private void todoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoBtnActionPerformed
+        mostrarDeptos();
+    }//GEN-LAST:event_todoBtnActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         if (searchTxt.getText().isEmpty()){
@@ -401,13 +408,9 @@ public class DeptosJ extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchBtnActionPerformed
 
-    private void todoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoBtnActionPerformed
-        mostrarDeptos();
-    }//GEN-LAST:event_todoBtnActionPerformed
-
-    private void limpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpBtnActionPerformed
-        limpiar();
-    }//GEN-LAST:event_limpBtnActionPerformed
+    private void searchTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTxtMouseClicked
+        searchTxt.setText(null);
+    }//GEN-LAST:event_searchTxtMouseClicked
 
     /**
      * @param args the command line arguments

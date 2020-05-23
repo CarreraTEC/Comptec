@@ -321,6 +321,7 @@ public class JefesDepto extends javax.swing.JFrame {
         limpBtn.setContentAreaFilled(false);
         limpBtn.setFocusPainted(false);
         limpBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        limpBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limp32_r.png"))); // NOI18N
         limpBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         limpBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -333,34 +334,37 @@ public class JefesDepto extends javax.swing.JFrame {
         modifBtn.setBorderPainted(false);
         modifBtn.setContentAreaFilled(false);
         modifBtn.setFocusPainted(false);
+        modifBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modif32_r.png"))); // NOI18N
         modifBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modifBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(modifBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 30, 30));
+        getContentPane().add(modifBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 30, 30));
 
         borrarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/delete32.png"))); // NOI18N
         borrarBtn.setBorderPainted(false);
         borrarBtn.setContentAreaFilled(false);
         borrarBtn.setFocusPainted(false);
+        borrarBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/delete32_r.png"))); // NOI18N
         borrarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 borrarBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(borrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 40, 32));
+        getContentPane().add(borrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 40, 32));
 
         añadirBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add32.png"))); // NOI18N
         añadirBtn.setBorderPainted(false);
         añadirBtn.setContentAreaFilled(false);
         añadirBtn.setFocusPainted(false);
+        añadirBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add32_r.png"))); // NOI18N
         añadirBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 añadirBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(añadirBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 30, 30));
+        getContentPane().add(añadirBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 30, 30));
 
         todoBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         todoBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -370,6 +374,7 @@ public class JefesDepto extends javax.swing.JFrame {
         todoBtn.setContentAreaFilled(false);
         todoBtn.setFocusPainted(false);
         todoBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        todoBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mostrar32_r.png"))); // NOI18N
         todoBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         todoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -410,6 +415,7 @@ public class JefesDepto extends javax.swing.JFrame {
         searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32.png"))); // NOI18N
         searchBtn.setContentAreaFilled(false);
         searchBtn.setFocusPainted(false);
+        searchBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32_r.png"))); // NOI18N
         searchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchBtnActionPerformed(evt);
