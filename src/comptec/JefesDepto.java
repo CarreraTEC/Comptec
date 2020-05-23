@@ -221,7 +221,7 @@ public class JefesDepto extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        verDeptosBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8_search_property_16px.png"))); // NOI18N
+        verDeptosBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/searchDept.png"))); // NOI18N
         verDeptosBtn.setContentAreaFilled(false);
         verDeptosBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

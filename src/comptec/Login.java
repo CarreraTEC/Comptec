@@ -83,10 +83,11 @@ public class Login extends javax.swing.JFrame {
         txtPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 260, 40));
 
-        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/iniciar.png"))); // NOI18N
+        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login1.png"))); // NOI18N
         btnLogin.setBorderPainted(false);
         btnLogin.setContentAreaFilled(false);
         btnLogin.setFocusPainted(false);
+        btnLogin.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login2.png"))); // NOI18N
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);

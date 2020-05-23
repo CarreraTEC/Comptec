@@ -325,7 +325,7 @@ public class Equipos extends javax.swing.JFrame {
         proceTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         getContentPane().add(proceTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 200, -1));
 
-        verDeptosBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8_search_property_16px.png"))); // NOI18N
+        verDeptosBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/searchDept.png"))); // NOI18N
         verDeptosBtn.setContentAreaFilled(false);
         verDeptosBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

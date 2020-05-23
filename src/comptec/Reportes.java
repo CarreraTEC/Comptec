@@ -33,11 +33,8 @@ public class Reportes extends javax.swing.JFrame {
         ramTxt = new javax.swing.JTextField();
         proceTxt = new javax.swing.JTextField();
         limpBtn = new javax.swing.JButton();
-        modifBtn = new javax.swing.JButton();
-        borrarBtn = new javax.swing.JButton();
         iddeptoLab = new javax.swing.JLabel();
         iddeptoTxt = new javax.swing.JTextField();
-        añadirBtn = new javax.swing.JButton();
         todoBtn = new javax.swing.JButton();
         separador = new javax.swing.JSeparator();
         search = new javax.swing.JLabel();
@@ -147,29 +144,11 @@ public class Reportes extends javax.swing.JFrame {
         });
         getContentPane().add(limpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 90, 110, 50));
 
-        modifBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modif32.png"))); // NOI18N
-        modifBtn.setBorderPainted(false);
-        modifBtn.setContentAreaFilled(false);
-        modifBtn.setFocusPainted(false);
-        getContentPane().add(modifBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 218, 30, 30));
-
-        borrarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/delete32.png"))); // NOI18N
-        borrarBtn.setBorderPainted(false);
-        borrarBtn.setContentAreaFilled(false);
-        borrarBtn.setFocusPainted(false);
-        getContentPane().add(borrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 218, 40, 32));
-
         iddeptoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         iddeptoLab.setForeground(new java.awt.Color(255, 255, 255));
         iddeptoLab.setText("ESTADO");
         getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, -1));
         getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 150, -1));
-
-        añadirBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add32.png"))); // NOI18N
-        añadirBtn.setBorderPainted(false);
-        añadirBtn.setContentAreaFilled(false);
-        añadirBtn.setFocusPainted(false);
-        getContentPane().add(añadirBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 218, 30, 30));
 
         todoBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         todoBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -227,10 +206,10 @@ public class Reportes extends javax.swing.JFrame {
         });
         getContentPane().add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 68, 68));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/reportbg.png"))); // NOI18N
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 620));
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/reports.png"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 620));
 
-        pack();
+        setBounds(0, 0, 926, 657);
     }// </editor-fold>//GEN-END:initComponents
 
     private void equipoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipoBtnActionPerformed
@@ -302,8 +281,6 @@ public class Reportes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
-    private javax.swing.JButton añadirBtn;
-    private javax.swing.JButton borrarBtn;
     private javax.swing.JButton deptoBtn;
     private javax.swing.JLabel discoLab;
     private javax.swing.JTextField discoTxt;
@@ -325,7 +302,6 @@ public class Reportes extends javax.swing.JFrame {
     private javax.swing.JButton logoutBtn;
     private javax.swing.JLabel modeloLab;
     private javax.swing.JTextField modeloTxt;
-    private javax.swing.JButton modifBtn;
     private javax.swing.JLabel proceLab;
     private javax.swing.JTextField proceTxt;
     private javax.swing.JLabel ramLab;
