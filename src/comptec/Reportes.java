@@ -3,8 +3,19 @@ package comptec;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class Reportes extends javax.swing.JFrame {
 
@@ -57,7 +68,7 @@ public class Reportes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaContenidos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        reportBtn = new javax.swing.JButton();
         estadoSelectCmb = new javax.swing.JComboBox<>();
         logoutBtn = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
@@ -192,8 +203,13 @@ public class Reportes extends javax.swing.JFrame {
         jLabel1.setText("ESTADO");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, -1));
 
-        jButton1.setText("GENERAR");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, -1, -1));
+        reportBtn.setText("GENERAR");
+        reportBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, -1, -1));
 
         estadoSelectCmb.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         estadoSelectCmb.addActionListener(new java.awt.event.ActionListener() {
@@ -236,7 +252,7 @@ public class Reportes extends javax.swing.JFrame {
 
             //Se llena la tabla con los registros
             while (rs.next()) {
-                registros[0] = rs.getString("idEquipo");
+                registros[0] = rs.getString("id");
                 registros[1] = rs.getString("idDepto");
                 registros[2] = rs.getString("noInvent");
                 registros[3] = rs.getString("noSerie");
@@ -279,7 +295,7 @@ public class Reportes extends javax.swing.JFrame {
 
             //Se llena la tabla con los registros
             while (rs.next()) {
-                registros[0] = rs.getString("idEquipo");
+                registros[0] = rs.getString("id");
                 registros[1] = rs.getString("idDepto");
                 registros[2] = rs.getString("noInvent");
                 registros[3] = rs.getString("noSerie");
@@ -356,6 +372,37 @@ public class Reportes extends javax.swing.JFrame {
         estadoCmb.setSelectedItem(tablaContenidos.getValueAt(filaSeleccionada, 8).toString());
     }//GEN-LAST:event_tablaContenidosMouseClicked
 
+    private void reportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportBtnActionPerformed
+        try {
+            if (estadoSelectCmb.getSelectedItem() == "Todos") {
+                //Informe general
+                JasperReport reporte = null;
+                String ruta = "src\\Reportes\\ReporteGral.jasper";
+                reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+                JasperPrint jprint = JasperFillManager.fillReport(reporte, null, conect);
+                JasperViewer view = new JasperViewer(jprint, false);
+                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                view.setVisible(true);
+            } else {
+                //Informe por categoria
+                JasperReport reporte = null;
+                String ruta = "src\\Reportes\\ReporteEstado.jasper";
+
+                Map parametro = new HashMap();
+                parametro.put("status", "'" + estadoSelectCmb.getSelectedItem().toString() + "'");
+
+                reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+                JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, conect);
+                JasperViewer view = new JasperViewer(jprint, false);
+                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+                view.setVisible(true);
+            }
+        } catch (JRException ex) {
+            Logger.getLogger(Reportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_reportBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -406,7 +453,6 @@ public class Reportes extends javax.swing.JFrame {
     private javax.swing.JTextField idTxt;
     private javax.swing.JLabel inventLab;
     private javax.swing.JTextField inventTxt;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jefeBtn;
@@ -417,6 +463,7 @@ public class Reportes extends javax.swing.JFrame {
     private javax.swing.JTextField proceTxt;
     private javax.swing.JLabel ramLab;
     private javax.swing.JTextField ramTxt;
+    private javax.swing.JButton reportBtn;
     private javax.swing.JButton reporteBtn;
     private javax.swing.JLabel serieLab;
     private javax.swing.JTextField serieTxt;

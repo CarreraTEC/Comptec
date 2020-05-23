@@ -1,10 +1,41 @@
-
 package comptec;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class ReportesJ extends javax.swing.JFrame {
 
+    //Establecer la conexión con la BD
+    ConexionBD conex = new ConexionBD();
+    Connection conect = conex.conexion();
+
     public ReportesJ() {
         initComponents();
+        //Agregar items al ComboBox (superior) de atributo estado
+        estadoCmb.addItem("Bueno");
+        estadoCmb.addItem("Regular");
+        estadoCmb.addItem("Defectuoso");
+        estadoCmb.setSelectedItem(null);
+        //Agregar items al ComboBox (inferior) de selección
+        estadoSelectCmb.addItem("Todos");
+        estadoSelectCmb.addItem("Bueno");
+        estadoSelectCmb.addItem("Regular");
+        estadoSelectCmb.addItem("Defectuoso");
+        estadoSelectCmb.setSelectedItem("Todos");
         this.setLocationRelativeTo(null);
     }
 
@@ -18,34 +49,27 @@ public class ReportesJ extends javax.swing.JFrame {
         reporteBtn = new javax.swing.JButton();
         idLab = new javax.swing.JLabel();
         idTxt = new javax.swing.JTextField();
-        inventLab = new javax.swing.JLabel();
-        inventTxt = new javax.swing.JTextField();
+        idDeptoLab = new javax.swing.JLabel();
+        idDeptoTxt = new javax.swing.JTextField();
         serieLab = new javax.swing.JLabel();
         serieTxt = new javax.swing.JTextField();
+        inventLab = new javax.swing.JLabel();
+        inventTxt = new javax.swing.JTextField();
         modeloLab = new javax.swing.JLabel();
         modeloTxt = new javax.swing.JTextField();
         proceLab = new javax.swing.JLabel();
-        ramLab = new javax.swing.JLabel();
-        discoLab = new javax.swing.JLabel();
-        estadoLab = new javax.swing.JLabel();
-        estadoTxt = new javax.swing.JTextField();
-        discoTxt = new javax.swing.JTextField();
-        ramTxt = new javax.swing.JTextField();
         proceTxt = new javax.swing.JTextField();
-        limpBtn = new javax.swing.JButton();
-        modifBtn = new javax.swing.JButton();
-        borrarBtn = new javax.swing.JButton();
-        iddeptoLab = new javax.swing.JLabel();
-        iddeptoTxt = new javax.swing.JTextField();
-        añadirBtn = new javax.swing.JButton();
-        todoBtn = new javax.swing.JButton();
-        separador = new javax.swing.JSeparator();
-        search = new javax.swing.JLabel();
+        ramLab = new javax.swing.JLabel();
+        discoDuroLab = new javax.swing.JLabel();
+        discoDuroTxt = new javax.swing.JTextField();
+        ramTxt = new javax.swing.JTextField();
+        estadoLab = new javax.swing.JLabel();
+        estadoCmb = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaContenidos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        reportBtn = new javax.swing.JButton();
+        estadoSelectCmb = new javax.swing.JComboBox<>();
         logoutBtn = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
@@ -86,110 +110,74 @@ public class ReportesJ extends javax.swing.JFrame {
         idLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         idLab.setForeground(new java.awt.Color(255, 255, 255));
         idLab.setText("ID EQUIPO");
-        getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
-        getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 150, -1));
+        getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
-        inventLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        inventLab.setForeground(new java.awt.Color(255, 255, 255));
-        inventLab.setText("ID DEPTO.");
-        getContentPane().add(inventLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
-        getContentPane().add(inventTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 150, -1));
+        idTxt.setEditable(false);
+        getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 200, -1));
+
+        idDeptoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        idDeptoLab.setForeground(new java.awt.Color(255, 255, 255));
+        idDeptoLab.setText("ID DEPTO.");
+        getContentPane().add(idDeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
+
+        idDeptoTxt.setEditable(false);
+        getContentPane().add(idDeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 200, -1));
 
         serieLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         serieLab.setForeground(new java.awt.Color(255, 255, 255));
         serieLab.setText("NO. SERIE");
-        getContentPane().add(serieLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
-        getContentPane().add(serieTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 150, -1));
+        getContentPane().add(serieLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
+
+        serieTxt.setEditable(false);
+        getContentPane().add(serieTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 200, -1));
+
+        inventLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        inventLab.setForeground(new java.awt.Color(255, 255, 255));
+        inventLab.setText("NO. INVENTARIO");
+        getContentPane().add(inventLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
+
+        inventTxt.setEditable(false);
+        getContentPane().add(inventTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 200, -1));
 
         modeloLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         modeloLab.setForeground(new java.awt.Color(255, 255, 255));
-        modeloLab.setText("NO. INVENTARIO");
-        getContentPane().add(modeloLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
-        getContentPane().add(modeloTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 150, -1));
+        modeloLab.setText("MODELO");
+        getContentPane().add(modeloLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+
+        modeloTxt.setEditable(false);
+        getContentPane().add(modeloTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 200, -1));
 
         proceLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         proceLab.setForeground(new java.awt.Color(255, 255, 255));
-        proceLab.setText("MODELO");
-        getContentPane().add(proceLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, -1));
+        proceLab.setText("PROCESADOR");
+        getContentPane().add(proceLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
+
+        proceTxt.setEditable(false);
+        getContentPane().add(proceTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 200, -1));
 
         ramLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ramLab.setForeground(new java.awt.Color(255, 255, 255));
-        ramLab.setText("PROCESADOR");
-        getContentPane().add(ramLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, -1, -1));
+        ramLab.setText("MEMORIA RAM");
+        getContentPane().add(ramLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, -1, -1));
 
-        discoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        discoLab.setForeground(new java.awt.Color(255, 255, 255));
-        discoLab.setText("MEMORIA RAM");
-        getContentPane().add(discoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
+        discoDuroLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        discoDuroLab.setForeground(new java.awt.Color(255, 255, 255));
+        discoDuroLab.setText("DISCO DURO");
+        getContentPane().add(discoDuroLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, -1));
+
+        discoDuroTxt.setEditable(false);
+        getContentPane().add(discoDuroTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 200, -1));
+
+        ramTxt.setEditable(false);
+        getContentPane().add(ramTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 200, -1));
 
         estadoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         estadoLab.setForeground(new java.awt.Color(255, 255, 255));
-        estadoLab.setText("DISCO DURO");
-        getContentPane().add(estadoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, -1));
-        getContentPane().add(estadoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 150, -1));
-        getContentPane().add(discoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 150, -1));
-        getContentPane().add(ramTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 150, -1));
-        getContentPane().add(proceTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 150, -1));
+        estadoLab.setText("ESTADO");
+        getContentPane().add(estadoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, -1, -1));
 
-        limpBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        limpBtn.setForeground(new java.awt.Color(255, 255, 255));
-        limpBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limp32.png"))); // NOI18N
-        limpBtn.setText("LIMPIAR");
-        limpBtn.setBorderPainted(false);
-        limpBtn.setContentAreaFilled(false);
-        limpBtn.setFocusPainted(false);
-        limpBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        limpBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        limpBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                limpBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(limpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 90, 110, 50));
-
-        modifBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modif32.png"))); // NOI18N
-        modifBtn.setBorderPainted(false);
-        modifBtn.setContentAreaFilled(false);
-        modifBtn.setFocusPainted(false);
-        getContentPane().add(modifBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 218, 30, 30));
-
-        borrarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/delete32.png"))); // NOI18N
-        borrarBtn.setBorderPainted(false);
-        borrarBtn.setContentAreaFilled(false);
-        borrarBtn.setFocusPainted(false);
-        getContentPane().add(borrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 218, 40, 32));
-
-        iddeptoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        iddeptoLab.setForeground(new java.awt.Color(255, 255, 255));
-        iddeptoLab.setText("ESTADO");
-        getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, -1));
-        getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 150, -1));
-
-        añadirBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add32.png"))); // NOI18N
-        añadirBtn.setBorderPainted(false);
-        añadirBtn.setContentAreaFilled(false);
-        añadirBtn.setFocusPainted(false);
-        getContentPane().add(añadirBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 218, 30, 30));
-
-        todoBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        todoBtn.setForeground(new java.awt.Color(255, 255, 255));
-        todoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mostrar32.png"))); // NOI18N
-        todoBtn.setText("MOSTRAR TODO");
-        todoBtn.setBorderPainted(false);
-        todoBtn.setContentAreaFilled(false);
-        todoBtn.setFocusPainted(false);
-        todoBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        todoBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        todoBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                todoBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(todoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 130, 50));
-        getContentPane().add(separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 40, 100, -1));
-
-        search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/search32.png"))); // NOI18N
-        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
+        estadoCmb.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        getContentPane().add(estadoCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 200, -1));
 
         tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -202,19 +190,34 @@ public class ReportesJ extends javax.swing.JFrame {
 
             }
         ));
+        tablaContenidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaContenidosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaContenidos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 690, 290));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 800, 290));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("ESTADO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 282, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BUENO", "REGULAR", "FUERA DE SERVICIO" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 130, -1));
+        reportBtn.setText("GENERAR");
+        reportBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, -1, -1));
 
-        jButton1.setText("GENERAR");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, -1, -1));
+        estadoSelectCmb.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        estadoSelectCmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estadoSelectCmbActionPerformed(evt);
+            }
+        });
+        getContentPane().add(estadoSelectCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 140, -1));
 
         logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logoutNorm.png"))); // NOI18N
         logoutBtn.setBorderPainted(false);
@@ -227,12 +230,106 @@ public class ReportesJ extends javax.swing.JFrame {
         });
         getContentPane().add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 68, 68));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/reportbg.png"))); // NOI18N
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 620));
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/reports.png"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 620));
 
-        pack();
+        setBounds(0, 0, 926, 657);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void reporteGeneral() {
+        //Definir encabezados de la tabla
+        String[] titulos = {"IdEquipo", "IdDepto", "No.Invent", "No.Serie", "Modelo", "Procesador", "RAM",
+            "DiscoDuro", "Estado"};
+        //Definir los registros
+        String[] registros = new String[9];
+        //Añadimos un modelo a la tabla
+        DefaultTableModel model = new DefaultTableModel(null, titulos);
+
+        try {
+            //Llamada al procedimiento almacenado
+            CallableStatement call = conect.prepareCall("call reporte_gral");
+            ResultSet rs = call.executeQuery();
+
+            //Se llena la tabla con los registros
+            while (rs.next()) {
+                registros[0] = rs.getString("id");
+                registros[1] = rs.getString("idDepto");
+                registros[2] = rs.getString("noInvent");
+                registros[3] = rs.getString("noSerie");
+                registros[4] = rs.getString("modelo");
+                registros[5] = rs.getString("procesador");
+                registros[6] = rs.getString("ram");
+                registros[7] = rs.getString("discoDuro");
+                registros[8] = rs.getString("estado");
+
+                model.addRow(registros);
+            }
+            tablaContenidos.setModel(model);
+            //Definir ancho de las columnas
+            int[] anchos = {5, 30, 30, 100, 90, 20, 40, 40, 20};
+            for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
+                tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
+            }
+            //Hacer campos de la tabla, no editables
+            tablaContenidos.setDefaultEditor(Object.class, null);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "No hay equipos");
+
+        }
+    }
+
+    public void reporteEstado() {
+        //Definir encabezados de la tabla
+        String[] titulos = {"IdEquipo", "IdDepto", "No.Invent", "No.Serie", "Modelo", "Procesador", "RAM",
+            "DiscoDuro", "Estado"};
+        //Definir los registros
+        String[] registros = new String[9];
+        //Añadimos un modelo a la tabla
+        DefaultTableModel model = new DefaultTableModel(null, titulos);
+
+        try {
+            //Llamada al procedimiento almacenado
+            CallableStatement call = conect.prepareCall("call reporte_estado(?)");
+            call.setString(1, (String) estadoSelectCmb.getSelectedItem());
+            ResultSet rs = call.executeQuery();
+
+            //Se llena la tabla con los registros
+            while (rs.next()) {
+                registros[0] = rs.getString("id");
+                registros[1] = rs.getString("idDepto");
+                registros[2] = rs.getString("noInvent");
+                registros[3] = rs.getString("noSerie");
+                registros[4] = rs.getString("modelo");
+                registros[5] = rs.getString("procesador");
+                registros[6] = rs.getString("ram");
+                registros[7] = rs.getString("discoDuro");
+                registros[8] = rs.getString("estado");
+
+                model.addRow(registros);
+            }
+            tablaContenidos.setModel(model);
+            //Definir ancho de las columnas
+            int[] anchos = {5, 30, 30, 100, 90, 20, 40, 40, 20};
+            for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
+                tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
+            }
+            //Hacer campos de la tabla, no editables
+            tablaContenidos.setDefaultEditor(Object.class, null);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "No hay equipos");
+
+        }
+    }
+
+    public void seleccion() {
+        if (estadoSelectCmb.getSelectedItem() == "Todos") {
+            reporteGeneral();
+        } else if(estadoSelectCmb.getSelectedItem()== "Bueno" | estadoSelectCmb.getSelectedItem()=="Regular" | 
+                estadoSelectCmb.getSelectedItem()=="Defectuoso"){
+            reporteEstado();
+        }
+    }
+ 
     private void equipoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipoBtnActionPerformed
         EquiposJ equip = new EquiposJ();
         equip.setVisible(true);
@@ -251,19 +348,60 @@ public class ReportesJ extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jefeBtnActionPerformed
 
-    private void limpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_limpBtnActionPerformed
-
-    private void todoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_todoBtnActionPerformed
-
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         Login login = new Login();
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void estadoSelectCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoSelectCmbActionPerformed
+        seleccion();
+    }//GEN-LAST:event_estadoSelectCmbActionPerformed
+
+    private void tablaContenidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaContenidosMouseClicked
+        //Código para mandar la información del renglon seleccionado
+        int filaSeleccionada = tablaContenidos.rowAtPoint(evt.getPoint());
+        idTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 0).toString());
+        idDeptoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 1).toString());
+        serieTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 2).toString());
+        inventTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 3).toString());
+        modeloTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 4).toString());
+        proceTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 5).toString());
+        ramTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 6).toString());
+        discoDuroTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 7).toString());
+        estadoCmb.setSelectedItem(tablaContenidos.getValueAt(filaSeleccionada, 8).toString());
+    }//GEN-LAST:event_tablaContenidosMouseClicked
+
+    private void reportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportBtnActionPerformed
+        try {
+            if (estadoSelectCmb.getSelectedItem() == "Todos") {
+                //Informe general
+                JasperReport reporte = null;
+                String ruta = "src\\Reportes\\ReporteGral.jasper";
+                reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+                JasperPrint jprint = JasperFillManager.fillReport(reporte, null, conect);
+                JasperViewer view = new JasperViewer(jprint, false);
+                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                view.setVisible(true);
+            } else {
+                //Informe por categoria
+                JasperReport reporte = null;
+                String ruta = "src\\Reportes\\ReporteEstado.jasper";
+
+                Map parametro = new HashMap();
+                parametro.put("status", "'" + estadoSelectCmb.getSelectedItem().toString() + "'");
+
+                reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+                JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, conect);
+                JasperViewer view = new JasperViewer(jprint, false);
+                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+                view.setVisible(true);
+            }
+        } catch (JRException ex) {
+            Logger.getLogger(ReportesJ.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_reportBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,40 +441,33 @@ public class ReportesJ extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
-    private javax.swing.JButton añadirBtn;
-    private javax.swing.JButton borrarBtn;
     private javax.swing.JButton deptoBtn;
-    private javax.swing.JLabel discoLab;
-    private javax.swing.JTextField discoTxt;
+    private javax.swing.JLabel discoDuroLab;
+    private javax.swing.JTextField discoDuroTxt;
     private javax.swing.JButton equipoBtn;
+    private javax.swing.JComboBox<String> estadoCmb;
     private javax.swing.JLabel estadoLab;
-    private javax.swing.JTextField estadoTxt;
+    private javax.swing.JComboBox<String> estadoSelectCmb;
+    private javax.swing.JLabel idDeptoLab;
+    private javax.swing.JTextField idDeptoTxt;
     private javax.swing.JLabel idLab;
     private javax.swing.JTextField idTxt;
-    private javax.swing.JLabel iddeptoLab;
-    private javax.swing.JTextField iddeptoTxt;
     private javax.swing.JLabel inventLab;
     private javax.swing.JTextField inventTxt;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jefeBtn;
-    private javax.swing.JButton limpBtn;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JLabel modeloLab;
     private javax.swing.JTextField modeloTxt;
-    private javax.swing.JButton modifBtn;
     private javax.swing.JLabel proceLab;
     private javax.swing.JTextField proceTxt;
     private javax.swing.JLabel ramLab;
     private javax.swing.JTextField ramTxt;
+    private javax.swing.JButton reportBtn;
     private javax.swing.JButton reporteBtn;
-    private javax.swing.JLabel search;
-    private javax.swing.JSeparator separador;
     private javax.swing.JLabel serieLab;
     private javax.swing.JTextField serieTxt;
     private javax.swing.JTable tablaContenidos;
-    private javax.swing.JButton todoBtn;
     // End of variables declaration//GEN-END:variables
 }
