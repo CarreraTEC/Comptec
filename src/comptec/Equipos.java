@@ -212,7 +212,7 @@ public class Equipos extends javax.swing.JFrame {
         discoTxt = new javax.swing.JTextField();
         ramTxt = new javax.swing.JTextField();
         proceTxt = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        verDeptosBtn = new javax.swing.JButton();
         limpBtn = new javax.swing.JButton();
         modifBtn = new javax.swing.JButton();
         borrarBtn = new javax.swing.JButton();
@@ -325,9 +325,14 @@ public class Equipos extends javax.swing.JFrame {
         proceTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         getContentPane().add(proceTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 200, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8_search_property_16px.png"))); // NOI18N
-        jButton1.setContentAreaFilled(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 183, 30, 20));
+        verDeptosBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8_search_property_16px.png"))); // NOI18N
+        verDeptosBtn.setContentAreaFilled(false);
+        verDeptosBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verDeptosBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(verDeptosBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 183, 30, 20));
 
         limpBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         limpBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -568,6 +573,42 @@ public class Equipos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchBtnActionPerformed
 
+    private void verDeptosBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verDeptosBtnActionPerformed
+        //Definir encabezados de la tabla
+        String[] titulos = {"Id", "Nombre", "Correo", "Teléfono"};
+        //Definir los registros
+        String[] registros = new String[4];
+        //Añadimos un modelo a la tabla
+        DefaultTableModel model = new DefaultTableModel(null, titulos);
+
+        try {
+            //Llamada al procedimiento almacenado
+            CallableStatement call = conect.prepareCall("call mostrar_departamentos");
+            ResultSet rs = call.executeQuery();
+
+            //Se llena la tabla con los registros
+            while (rs.next()) {
+                registros[0] = rs.getString("id");
+                registros[1] = rs.getString("nombre");
+                registros[2] = rs.getString("correo");
+                registros[3] = rs.getString("telefono");
+
+                model.addRow(registros);
+            }
+            tablaContenidos.setModel(model);
+            //Definir ancho de las columnas
+            int[] anchos = {10, 200, 100, 50};
+            for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
+                tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
+            }
+            //Hacer campos de la tabla, no editables
+            tablaContenidos.setDefaultEditor(Object.class, null);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "No hay departamentos");
+
+        }
+    }//GEN-LAST:event_verDeptosBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -619,7 +660,6 @@ public class Equipos extends javax.swing.JFrame {
     private javax.swing.JTextField iddeptoTxt;
     private javax.swing.JLabel inventLab;
     private javax.swing.JTextField inventTxt;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jefeBtn;
     private javax.swing.JButton limpBtn;
@@ -639,5 +679,6 @@ public class Equipos extends javax.swing.JFrame {
     private javax.swing.JTextField serieTxt;
     private javax.swing.JTable tablaContenidos;
     private javax.swing.JButton todoBtn;
+    private javax.swing.JButton verDeptosBtn;
     // End of variables declaration//GEN-END:variables
 }
