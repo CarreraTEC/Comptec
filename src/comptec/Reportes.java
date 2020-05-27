@@ -201,7 +201,7 @@ public class Reportes extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("ESTADO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 278, -1, -1));
 
         reportBtn.setText("GENERAR");
         reportBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +209,7 @@ public class Reportes extends javax.swing.JFrame {
                 reportBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(reportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, -1, -1));
+        getContentPane().add(reportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 273, -1, -1));
 
         estadoSelectCmb.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         estadoSelectCmb.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +217,7 @@ public class Reportes extends javax.swing.JFrame {
                 estadoSelectCmbActionPerformed(evt);
             }
         });
-        getContentPane().add(estadoSelectCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 140, -1));
+        getContentPane().add(estadoSelectCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 275, 140, -1));
 
         logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logoutNorm.png"))); // NOI18N
         logoutBtn.setBorderPainted(false);
@@ -266,7 +266,7 @@ public class Reportes extends javax.swing.JFrame {
             }
             tablaContenidos.setModel(model);
             //Definir ancho de las columnas
-            int[] anchos = {5, 30, 30, 100, 90, 20, 40, 40, 20};
+            int[] anchos = {20, 30, 30, 30, 120, 50, 40, 40, 40};
             for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
                 tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
             }
@@ -309,7 +309,7 @@ public class Reportes extends javax.swing.JFrame {
             }
             tablaContenidos.setModel(model);
             //Definir ancho de las columnas
-            int[] anchos = {5, 30, 30, 100, 90, 20, 40, 40, 20};
+            int[] anchos = {20, 30, 30, 30, 120, 50, 40, 40, 40};
             for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
                 tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
             }
