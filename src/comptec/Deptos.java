@@ -89,7 +89,7 @@ public class Deptos extends javax.swing.JFrame {
             //Hacer campos de la tabla, no editables
             tablaContenidos.setDefaultEditor(Object.class, null);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Ingrese el Id del departamento");
+            JOptionPane.showMessageDialog(null, "No se encontraron resultados");
 
         }
     }
@@ -310,7 +310,7 @@ public class Deptos extends javax.swing.JFrame {
         searchTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         searchTxt.setForeground(new java.awt.Color(255, 255, 255));
         searchTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        searchTxt.setText("Id del depto.");
+        searchTxt.setText("Nombre depto.");
         searchTxt.setBorder(null);
         searchTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -431,8 +431,8 @@ public class Deptos extends javax.swing.JFrame {
     }//GEN-LAST:event_searchTxtMouseClicked
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        if (searchTxt.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ingrese el Id del departamento");
+        if (searchTxt.getText().isEmpty() || searchTxt.getText().equals("Nombre depto.")){
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre del departamento");
         } else {
             buscarDepto();
         }

@@ -55,19 +55,18 @@ public class JefesDeptoJ extends javax.swing.JFrame {
             //Hacer campos de la tabla, no editables
             tablaContenidos.setDefaultEditor(Object.class, null);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "No hay equipos");
+            JOptionPane.showMessageDialog(null, "No hay jefes");
 
         }
 
     }
 
     public void buscarJefe() {
-        //Definir encabezados de la tabla
-        String[] titulos = {"Id", "Nombre", "Correo", "Teléfono","TipoUsuario","Usuario",
-        "Contraseña","IdDepto"};
+         //Definir encabezados de la tabla
+        String[] titulos = {"Id", "Nombre", "Correo", "Teléfono","TipoUser","IdDepto"};
         //Definir los registros
-        String[] registros = new String[8];
-        
+        String[] registros = new String[6];
+        //Añadimos un modelo a la tabla
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
         try {
@@ -85,22 +84,20 @@ public class JefesDeptoJ extends javax.swing.JFrame {
                 registros[2] = rs.getString("correo");
                 registros[3] = rs.getString("telefono");
                 registros[4] = rs.getString("tipoUsuario");
-                registros[5] = rs.getString("usuario");
-                registros[6] = rs.getString("contraseña");
-                registros[7] = rs.getString("idDepto");
+                registros[5] = rs.getString("idDepto");
                 
                 model.addRow(registros);
             }
             tablaContenidos.setModel(model);
             //Definir ancho de las columnas
-            int[] anchos = {10, 200, 100, 50, 10, 10, 10, 10};
+            int[] anchos = {5, 190, 150, 50, 35, 10};
             for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
                 tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
             }
             //Hacer campos de la tabla, no editables
             tablaContenidos.setDefaultEditor(Object.class, null);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Ingrese el Id del jefe");
+            JOptionPane.showMessageDialog(null, "No se encontraron resultados");
 
         }
     }
@@ -119,6 +116,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        verDeptosBtn = new javax.swing.JButton();
         equipoBtn = new javax.swing.JButton();
         deptoBtn = new javax.swing.JButton();
         jefeBtn = new javax.swing.JButton();
@@ -147,6 +145,15 @@ public class JefesDeptoJ extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        verDeptosBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/searchDept.png"))); // NOI18N
+        verDeptosBtn.setContentAreaFilled(false);
+        verDeptosBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verDeptosBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(verDeptosBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 173, 30, 20));
 
         equipoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eqNorm.png"))); // NOI18N
         equipoBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eqRoll.png"))); // NOI18N
@@ -297,7 +304,7 @@ public class JefesDeptoJ extends javax.swing.JFrame {
         searchTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         searchTxt.setForeground(new java.awt.Color(255, 255, 255));
         searchTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        searchTxt.setText("Id del jefe");
+        searchTxt.setText("Nombre jefe");
         searchTxt.setBorder(null);
         searchTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -377,8 +384,8 @@ public class JefesDeptoJ extends javax.swing.JFrame {
     }//GEN-LAST:event_todoBtnActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        if (searchTxt.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ingrese el Id del jefe");
+        if (searchTxt.getText().isEmpty() || "Nombre jefe".equals(searchTxt.getText())){
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre del jefe");
         } else {
             buscarJefe();
         }
@@ -387,6 +394,42 @@ public class JefesDeptoJ extends javax.swing.JFrame {
     private void searchTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTxtMouseClicked
         searchTxt.setText(null);
     }//GEN-LAST:event_searchTxtMouseClicked
+
+    private void verDeptosBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verDeptosBtnActionPerformed
+        //Definir encabezados de la tabla
+        String[] titulos = {"Id", "Nombre", "Correo", "Teléfono"};
+        //Definir los registros
+        String[] registros = new String[4];
+        //Añadimos un modelo a la tabla
+        DefaultTableModel model = new DefaultTableModel(null, titulos);
+
+        try {
+            //Llamada al procedimiento almacenado
+            CallableStatement call = conect.prepareCall("call mostrar_departamentos");
+            ResultSet rs = call.executeQuery();
+
+            //Se llena la tabla con los registros
+            while (rs.next()) {
+                registros[0] = rs.getString("id");
+                registros[1] = rs.getString("nombre");
+                registros[2] = rs.getString("correo");
+                registros[3] = rs.getString("telefono");
+
+                model.addRow(registros);
+            }
+            tablaContenidos.setModel(model);
+            //Definir ancho de las columnas
+            int[] anchos = {10, 200, 100, 50};
+            for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
+                tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
+            }
+            //Hacer campos de la tabla, no editables
+            tablaContenidos.setDefaultEditor(Object.class, null);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "No hay departamentos");
+
+        }
+    }//GEN-LAST:event_verDeptosBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -450,5 +493,6 @@ public class JefesDeptoJ extends javax.swing.JFrame {
     private javax.swing.JButton todoBtn;
     private javax.swing.JComboBox<String> tuserCmb;
     private javax.swing.JLabel tuserLab;
+    private javax.swing.JButton verDeptosBtn;
     // End of variables declaration//GEN-END:variables
 }

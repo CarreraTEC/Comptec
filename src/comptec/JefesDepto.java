@@ -58,7 +58,7 @@ public class JefesDepto extends javax.swing.JFrame {
             //Hacer campos de la tabla, no editables
             tablaContenidos.setDefaultEditor(Object.class, null);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "No hay equipos");
+            JOptionPane.showMessageDialog(null, "No hay jefes");
 
         }
 
@@ -103,7 +103,7 @@ public class JefesDepto extends javax.swing.JFrame {
             //Hacer campos de la tabla, no editables
             tablaContenidos.setDefaultEditor(Object.class, null);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Ingrese el Id del jefe");
+            JOptionPane.showMessageDialog(null, "No se encontraron resultados");
 
         }
     }
@@ -408,7 +408,7 @@ public class JefesDepto extends javax.swing.JFrame {
         searchTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         searchTxt.setForeground(new java.awt.Color(255, 255, 255));
         searchTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        searchTxt.setText("Id del jefe");
+        searchTxt.setText("Nombre jefe");
         searchTxt.setBorder(null);
         searchTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -545,8 +545,8 @@ public class JefesDepto extends javax.swing.JFrame {
     }//GEN-LAST:event_searchTxtMouseClicked
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        if (searchTxt.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ingrese el Id del jefe");
+        if (searchTxt.getText().isEmpty() || "Nombre jefe".equals(searchTxt.getText())){
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre del jefe");
         } else {
             buscarJefe();
         }
