@@ -193,6 +193,7 @@ public class Deptos extends javax.swing.JFrame {
         getContentPane().add(correoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 200, -1));
 
         idTxt.setEditable(false);
+        idTxt.setBackground(new java.awt.Color(207, 231, 255));
         idTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 200, -1));
 
