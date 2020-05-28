@@ -22,6 +22,9 @@ public class Reportes extends javax.swing.JFrame {
     //Establecer la conexión con la BD
     ConexionBD conex = new ConexionBD();
     Connection conect = conex.conexion();
+    //Recuperamos el idDepto del usuario logueado
+    Login acceso = new Login();
+    int idDepto = acceso.idDepto;
 
     public Reportes() {
         initComponents();
@@ -47,10 +50,8 @@ public class Reportes extends javax.swing.JFrame {
         deptoBtn = new javax.swing.JButton();
         jefeBtn = new javax.swing.JButton();
         reporteBtn = new javax.swing.JButton();
-        idLab = new javax.swing.JLabel();
-        idTxt = new javax.swing.JTextField();
-        idDeptoLab = new javax.swing.JLabel();
-        idDeptoTxt = new javax.swing.JTextField();
+        deptoLab = new javax.swing.JLabel();
+        deptoTxt = new javax.swing.JTextField();
         serieLab = new javax.swing.JLabel();
         serieTxt = new javax.swing.JTextField();
         inventLab = new javax.swing.JLabel();
@@ -107,77 +108,69 @@ public class Reportes extends javax.swing.JFrame {
         reporteBtn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/repoRoll.png"))); // NOI18N
         getContentPane().add(reporteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 68, 68));
 
-        idLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        idLab.setForeground(new java.awt.Color(255, 255, 255));
-        idLab.setText("ID EQUIPO");
-        getContentPane().add(idLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+        deptoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        deptoLab.setForeground(new java.awt.Color(255, 255, 255));
+        deptoLab.setText("DEPARTAMENTO");
+        getContentPane().add(deptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 104, -1, -1));
 
-        idTxt.setEditable(false);
-        getContentPane().add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 200, -1));
-
-        idDeptoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        idDeptoLab.setForeground(new java.awt.Color(255, 255, 255));
-        idDeptoLab.setText("ID DEPTO.");
-        getContentPane().add(idDeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
-
-        idDeptoTxt.setEditable(false);
-        getContentPane().add(idDeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 200, -1));
+        deptoTxt.setEditable(false);
+        getContentPane().add(deptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 200, -1));
 
         serieLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         serieLab.setForeground(new java.awt.Color(255, 255, 255));
         serieLab.setText("NO. SERIE");
-        getContentPane().add(serieLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
+        getContentPane().add(serieLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 134, -1, -1));
 
         serieTxt.setEditable(false);
-        getContentPane().add(serieTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 200, -1));
+        getContentPane().add(serieTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 200, -1));
 
         inventLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         inventLab.setForeground(new java.awt.Color(255, 255, 255));
         inventLab.setText("NO. INVENTARIO");
-        getContentPane().add(inventLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
+        getContentPane().add(inventLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 164, -1, -1));
 
         inventTxt.setEditable(false);
-        getContentPane().add(inventTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 200, -1));
+        getContentPane().add(inventTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 200, -1));
 
         modeloLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         modeloLab.setForeground(new java.awt.Color(255, 255, 255));
         modeloLab.setText("MODELO");
-        getContentPane().add(modeloLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+        getContentPane().add(modeloLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 194, -1, -1));
 
         modeloTxt.setEditable(false);
-        getContentPane().add(modeloTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 200, -1));
+        getContentPane().add(modeloTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 200, -1));
 
         proceLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         proceLab.setForeground(new java.awt.Color(255, 255, 255));
         proceLab.setText("PROCESADOR");
-        getContentPane().add(proceLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
+        getContentPane().add(proceLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 104, -1, -1));
 
         proceTxt.setEditable(false);
-        getContentPane().add(proceTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 200, -1));
+        getContentPane().add(proceTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 200, -1));
 
         ramLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ramLab.setForeground(new java.awt.Color(255, 255, 255));
         ramLab.setText("MEMORIA RAM");
-        getContentPane().add(ramLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, -1, -1));
+        getContentPane().add(ramLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 134, -1, -1));
 
         discoDuroLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         discoDuroLab.setForeground(new java.awt.Color(255, 255, 255));
         discoDuroLab.setText("DISCO DURO");
-        getContentPane().add(discoDuroLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, -1));
+        getContentPane().add(discoDuroLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 164, -1, -1));
 
         discoDuroTxt.setEditable(false);
-        getContentPane().add(discoDuroTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 200, -1));
+        getContentPane().add(discoDuroTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 200, -1));
 
         ramTxt.setEditable(false);
-        getContentPane().add(ramTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 200, -1));
+        getContentPane().add(ramTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 200, -1));
 
         estadoLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         estadoLab.setForeground(new java.awt.Color(255, 255, 255));
         estadoLab.setText("ESTADO");
-        getContentPane().add(estadoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, -1, -1));
+        getContentPane().add(estadoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 194, -1, -1));
 
         estadoCmb.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        getContentPane().add(estadoCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 200, -1));
+        getContentPane().add(estadoCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 200, -1));
 
         tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -238,35 +231,35 @@ public class Reportes extends javax.swing.JFrame {
 
     public void reporteGeneral() {
         //Definir encabezados de la tabla
-        String[] titulos = {"IdEquipo", "IdDepto", "No.Invent", "No.Serie", "Modelo", "Procesador", "RAM",
+        String[] titulos = {"Departamento", "No.Invent", "No.Serie", "Modelo", "Procesador", "RAM",
             "DiscoDuro", "Estado"};
         //Definir los registros
-        String[] registros = new String[9];
+        String[] registros = new String[8];
         //Añadimos un modelo a la tabla
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
         try {
             //Llamada al procedimiento almacenado
-            CallableStatement call = conect.prepareCall("call reporte_gral");
+            CallableStatement call = conect.prepareCall("call reporte_gral(?)");
+            call.setInt(1, idDepto);
             ResultSet rs = call.executeQuery();
 
             //Se llena la tabla con los registros
             while (rs.next()) {
-                registros[0] = rs.getString("id");
-                registros[1] = rs.getString("idDepto");
-                registros[2] = rs.getString("noInvent");
-                registros[3] = rs.getString("noSerie");
-                registros[4] = rs.getString("modelo");
-                registros[5] = rs.getString("procesador");
-                registros[6] = rs.getString("ram");
-                registros[7] = rs.getString("discoDuro");
-                registros[8] = rs.getString("estado");
+                registros[0] = rs.getString("departamento");
+                registros[1] = rs.getString("noInvent");
+                registros[2] = rs.getString("noSerie");
+                registros[3] = rs.getString("modelo");
+                registros[4] = rs.getString("procesador");
+                registros[5] = rs.getString("ram");
+                registros[6] = rs.getString("discoDuro");
+                registros[7] = rs.getString("estado");
 
                 model.addRow(registros);
             }
             tablaContenidos.setModel(model);
             //Definir ancho de las columnas
-            int[] anchos = {20, 30, 30, 30, 120, 50, 40, 40, 40};
+            int[] anchos = {120, 30, 30, 110, 80, 50, 40, 40};
             for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
                 tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
             }
@@ -280,36 +273,36 @@ public class Reportes extends javax.swing.JFrame {
 
     public void reporteEstado() {
         //Definir encabezados de la tabla
-        String[] titulos = {"IdEquipo", "IdDepto", "No.Invent", "No.Serie", "Modelo", "Procesador", "RAM",
+        String[] titulos = {"Departamento", "No.Invent", "No.Serie", "Modelo", "Procesador", "RAM",
             "DiscoDuro", "Estado"};
         //Definir los registros
-        String[] registros = new String[9];
+        String[] registros = new String[8];
         //Añadimos un modelo a la tabla
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
         try {
             //Llamada al procedimiento almacenado
-            CallableStatement call = conect.prepareCall("call reporte_estado(?)");
+            CallableStatement call = conect.prepareCall("call reporte_estado(?,?)");
             call.setString(1, (String) estadoSelectCmb.getSelectedItem());
+            call.setInt(2, idDepto);
             ResultSet rs = call.executeQuery();
 
             //Se llena la tabla con los registros
             while (rs.next()) {
-                registros[0] = rs.getString("id");
-                registros[1] = rs.getString("idDepto");
-                registros[2] = rs.getString("noInvent");
-                registros[3] = rs.getString("noSerie");
-                registros[4] = rs.getString("modelo");
-                registros[5] = rs.getString("procesador");
-                registros[6] = rs.getString("ram");
-                registros[7] = rs.getString("discoDuro");
-                registros[8] = rs.getString("estado");
+                registros[0] = rs.getString("departamento");
+                registros[1] = rs.getString("noInvent");
+                registros[2] = rs.getString("noSerie");
+                registros[3] = rs.getString("modelo");
+                registros[4] = rs.getString("procesador");
+                registros[5] = rs.getString("ram");
+                registros[6] = rs.getString("discoDuro");
+                registros[7] = rs.getString("estado");
 
                 model.addRow(registros);
             }
             tablaContenidos.setModel(model);
             //Definir ancho de las columnas
-            int[] anchos = {20, 30, 30, 30, 120, 50, 40, 40, 40};
+            int[] anchos = {120, 30, 30, 110, 80, 50, 40, 40};
             for (int i = 0; i < tablaContenidos.getColumnCount(); i++) {
                 tablaContenidos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
             }
@@ -324,12 +317,12 @@ public class Reportes extends javax.swing.JFrame {
     public void seleccion() {
         if (estadoSelectCmb.getSelectedItem() == "Todos") {
             reporteGeneral();
-        } else if(estadoSelectCmb.getSelectedItem()== "Bueno" | estadoSelectCmb.getSelectedItem()=="Regular" | 
-                estadoSelectCmb.getSelectedItem()=="Defectuoso"){
+        } else if (estadoSelectCmb.getSelectedItem() == "Bueno" | estadoSelectCmb.getSelectedItem() == "Regular"
+                | estadoSelectCmb.getSelectedItem() == "Defectuoso") {
             reporteEstado();
         }
     }
- 
+
     private void equipoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipoBtnActionPerformed
         Equipos equip = new Equipos();
         equip.setVisible(true);
@@ -361,15 +354,14 @@ public class Reportes extends javax.swing.JFrame {
     private void tablaContenidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaContenidosMouseClicked
         //Código para mandar la información del renglon seleccionado
         int filaSeleccionada = tablaContenidos.rowAtPoint(evt.getPoint());
-        idTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 0).toString());
-        idDeptoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 1).toString());
-        serieTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 2).toString());
-        inventTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 3).toString());
-        modeloTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 4).toString());
-        proceTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 5).toString());
-        ramTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 6).toString());
-        discoDuroTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 7).toString());
-        estadoCmb.setSelectedItem(tablaContenidos.getValueAt(filaSeleccionada, 8).toString());
+        deptoTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 0).toString());;
+        serieTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 1).toString());
+        inventTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 2).toString());
+        modeloTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 3).toString());
+        proceTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 4).toString());
+        ramTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 5).toString());
+        discoDuroTxt.setText(tablaContenidos.getValueAt(filaSeleccionada, 6).toString());
+        estadoCmb.setSelectedItem(tablaContenidos.getValueAt(filaSeleccionada, 7).toString());
     }//GEN-LAST:event_tablaContenidosMouseClicked
 
     private void reportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportBtnActionPerformed
@@ -441,16 +433,14 @@ public class Reportes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton deptoBtn;
+    private javax.swing.JLabel deptoLab;
+    private javax.swing.JTextField deptoTxt;
     private javax.swing.JLabel discoDuroLab;
     private javax.swing.JTextField discoDuroTxt;
     private javax.swing.JButton equipoBtn;
     private javax.swing.JComboBox<String> estadoCmb;
     private javax.swing.JLabel estadoLab;
     private javax.swing.JComboBox<String> estadoSelectCmb;
-    private javax.swing.JLabel idDeptoLab;
-    private javax.swing.JTextField idDeptoTxt;
-    private javax.swing.JLabel idLab;
-    private javax.swing.JTextField idTxt;
     private javax.swing.JLabel inventLab;
     private javax.swing.JTextField inventTxt;
     private javax.swing.JLabel jLabel1;

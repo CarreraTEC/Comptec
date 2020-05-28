@@ -3,6 +3,9 @@
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="idDepto" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      equipos.`noInvent` AS equipos_noInvent,
@@ -15,7 +18,8 @@
      departamentos.`id` AS departamentos_id,
      departamentos.`nombre` AS departamentos_nombre
 FROM
-     `departamentos` departamentos INNER JOIN `equipos` equipos ON departamentos.`id` = equipos.`idDepto`]]>
+     `departamentos` departamentos INNER JOIN `equipos` equipos ON departamentos.`id` = equipos.`idDepto`
+WHERE departamentos.id = $P!{idDepto}]]>
 	</queryString>
 	<field name="equipos_noInvent" class="java.lang.Integer"/>
 	<field name="equipos_noSerie" class="java.lang.Integer"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a723a7fe-15b3-4fcc-aefd-490460935799">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="status" class="java.lang.String">
@@ -8,7 +8,6 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
-     equipos.`id` AS equipos_id,
      equipos.`noInvent` AS equipos_noInvent,
      equipos.`noSerie` AS equipos_noSerie,
      equipos.`modelo` AS equipos_modelo,
@@ -16,12 +15,12 @@
      equipos.`ram` AS equipos_ram,
      equipos.`discoDuro` AS equipos_discoDuro,
      equipos.`estado` AS equipos_estado,
-     equipos.`idDepto` AS equipos_idDepto
+     departamentos.`id` AS departamentos_id,
+     departamentos.`nombre` AS departamentos_nombre
 FROM
-     `equipos` equipos
+     `departamentos` departamentos INNER JOIN `equipos` equipos ON departamentos.`id` = equipos.`idDepto`
 WHERE equipos.estado = $P!{status}]]>
 	</queryString>
-	<field name="equipos_id" class="java.lang.Integer"/>
 	<field name="equipos_noInvent" class="java.lang.Integer"/>
 	<field name="equipos_noSerie" class="java.lang.Integer"/>
 	<field name="equipos_modelo" class="java.lang.String"/>
@@ -29,25 +28,26 @@ WHERE equipos.estado = $P!{status}]]>
 	<field name="equipos_ram" class="java.lang.String"/>
 	<field name="equipos_discoDuro" class="java.lang.String"/>
 	<field name="equipos_estado" class="java.lang.String"/>
-	<field name="equipos_idDepto" class="java.lang.Integer"/>
+	<field name="departamentos_id" class="java.lang.Integer"/>
+	<field name="departamentos_nombre" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="82" splitType="Stretch">
 			<staticText>
-				<reportElement x="132" y="20" width="306" height="40" uuid="7c11b48c-196f-4c34-a1d7-4ac9d3fb19a1"/>
+				<reportElement x="176" y="20" width="233" height="40" uuid="7c11b48c-196f-4c34-a1d7-4ac9d3fb19a1"/>
 				<textElement>
-					<font size="20" isBold="true"/>
+					<font size="22" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Reporte de equipos por estado]]></text>
+				<text><![CDATA[Reporte de equipos]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="455" y="0" width="100" height="20" uuid="38168c41-f797-45a8-a5ae-22509c88c1f6"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="35" y="10" width="74" height="60" uuid="12107f8c-e9aa-43c4-83ca-a501447a1bfa"/>
+				<reportElement x="79" y="10" width="74" height="60" uuid="12107f8c-e9aa-43c4-83ca-a501447a1bfa"/>
 				<imageExpression><![CDATA["C:\\Users\\emili\\Pictures\\pcx.jpg"]]></imageExpression>
 			</image>
 		</band>
@@ -58,107 +58,120 @@ WHERE equipos.estado = $P!{status}]]>
 	<columnHeader>
 		<band height="26" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="51" height="20" uuid="a5a4921e-9000-448b-92cd-99208db103fc"/>
+				<reportElement x="109" y="0" width="55" height="20" uuid="5977ce84-c4fb-4ae3-a3e3-17ddf18201d9"/>
 				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[IdEquipo]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="51" y="0" width="46" height="20" uuid="c0e77f9f-be52-4e1f-b951-15c50e391e0a"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[IdDepto]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="97" y="0" width="67" height="20" uuid="5977ce84-c4fb-4ae3-a3e3-17ddf18201d9"/>
-				<textElement>
-					<font isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[No. Invent]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="164" y="0" width="58" height="20" uuid="98bc4440-299f-4b0a-91c8-ef7cf3e90fe0"/>
+				<reportElement x="164" y="0" width="51" height="20" uuid="98bc4440-299f-4b0a-91c8-ef7cf3e90fe0"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[No. Serie]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="222" y="0" width="83" height="20" uuid="f63f57be-d6e9-4319-b72a-54332f140e0f"/>
+				<reportElement x="213" y="0" width="92" height="20" uuid="f63f57be-d6e9-4319-b72a-54332f140e0f"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Modelo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="305" y="0" width="76" height="20" uuid="954d7b7e-34f4-4088-963c-8a99997f3d5e"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Procesador]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="381" y="0" width="57" height="20" uuid="a4ba25e5-1d0d-4eda-b796-f050c32147d7"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[RAM]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="438" y="0" width="60" height="20" uuid="a741ddc4-bf26-4b16-95cc-a8d2e8ab7089"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[DiscoDuro]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="498" y="0" width="57" height="20" uuid="b5908709-a2ab-496b-928b-3faa12ff1d29"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="109" height="20" uuid="99d6a9d6-b4f1-481d-b94c-bd92bb99a6a1"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Departamento]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="23" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="51" height="20" uuid="2c44793b-871b-48c7-9977-7e5ecc82540c"/>
-				<textFieldExpression><![CDATA[$F{equipos_id}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="51" y="0" width="46" height="20" uuid="afe65bbb-c1f2-475e-9e42-41c3c56c87b5"/>
-				<textFieldExpression><![CDATA[$F{equipos_idDepto}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="97" y="0" width="67" height="20" uuid="b3820bf5-17ea-40c6-aee3-dc1400039082"/>
+				<reportElement x="109" y="0" width="55" height="20" uuid="b3820bf5-17ea-40c6-aee3-dc1400039082"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{equipos_noInvent}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="164" y="0" width="58" height="20" uuid="de9c5af1-417a-4130-8bc1-976018183718"/>
+				<reportElement x="164" y="0" width="51" height="20" uuid="de9c5af1-417a-4130-8bc1-976018183718"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{equipos_noSerie}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="222" y="0" width="83" height="20" uuid="469d495b-6a40-4ff2-a081-595abb26eb60"/>
+				<reportElement x="213" y="0" width="92" height="20" uuid="469d495b-6a40-4ff2-a081-595abb26eb60"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{equipos_modelo}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="305" y="0" width="76" height="20" uuid="a8a2ade4-bbde-4d30-96a2-fb49579fe661"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{equipos_procesador}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="381" y="0" width="57" height="20" uuid="baf67c86-2753-46c7-b773-be1ff4ee44dd"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{equipos_ram}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="438" y="0" width="60" height="20" uuid="7df35dfd-0caf-45a1-9c12-eaf93bb33948"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{equipos_discoDuro}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="498" y="0" width="57" height="20" uuid="4f0ba7e0-e904-41b7-b301-a9c347077c28"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{equipos_estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="109" height="20" uuid="45618257-cf79-4e92-af5e-e6a89100b835"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{departamentos_nombre}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
