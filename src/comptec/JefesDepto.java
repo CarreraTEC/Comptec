@@ -316,6 +316,11 @@ public class JefesDepto extends javax.swing.JFrame {
         getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 154, -1, -1));
 
         iddeptoTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        iddeptoTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                iddeptoTxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 200, -1));
 
         passTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -589,6 +594,13 @@ public class JefesDepto extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_verDeptosBtnActionPerformed
+
+    private void iddeptoTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_iddeptoTxtKeyTyped
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9')) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_iddeptoTxtKeyTyped
 
     /**
      * @param args the command line arguments

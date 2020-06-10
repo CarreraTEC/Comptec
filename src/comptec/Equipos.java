@@ -279,6 +279,11 @@ public class Equipos extends javax.swing.JFrame {
         getContentPane().add(inventLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 124, -1, -1));
 
         inventTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        inventTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inventTxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(inventTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 200, -1));
 
         serieLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -287,6 +292,11 @@ public class Equipos extends javax.swing.JFrame {
         getContentPane().add(serieLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 154, -1, -1));
 
         serieTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        serieTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                serieTxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(serieTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 200, -1));
 
         modeloLab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -382,6 +392,11 @@ public class Equipos extends javax.swing.JFrame {
         getContentPane().add(iddeptoLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 184, -1, -1));
 
         iddeptoTxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        iddeptoTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                iddeptoTxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(iddeptoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 200, -1));
 
         añadirBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add32.png"))); // NOI18N
@@ -609,6 +624,27 @@ public class Equipos extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_verDeptosBtnActionPerformed
+
+    private void iddeptoTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_iddeptoTxtKeyTyped
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9')) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_iddeptoTxtKeyTyped
+
+    private void inventTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inventTxtKeyTyped
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9')) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_inventTxtKeyTyped
+
+    private void serieTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_serieTxtKeyTyped
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9')) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_serieTxtKeyTyped
 
     /**
      * @param args the command line arguments
