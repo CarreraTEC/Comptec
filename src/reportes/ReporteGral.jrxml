@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a723a7fe-15b3-4fcc-aefd-490460935799">
-	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
@@ -42,10 +42,6 @@ FROM
 				<reportElement x="455" y="0" width="100" height="20" uuid="38168c41-f797-45a8-a5ae-22509c88c1f6"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="90" y="10" width="74" height="60" uuid="12107f8c-e9aa-43c4-83ca-a501447a1bfa"/>
-				<imageExpression><![CDATA["C:\\Users\\emili\\Pictures\\pcx.jpg"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>
